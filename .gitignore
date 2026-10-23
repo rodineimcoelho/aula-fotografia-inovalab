@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.impeccable/review/
+.impeccable/questions/
+.impeccable/mocks/
+.impeccable/live/
+.impeccable/config.local.json
+*.local
+atividade/data/
+test-results/
+playwright-report/
+entrega/

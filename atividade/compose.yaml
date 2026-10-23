@@ -1,0 +1,15 @@
+services:
+  atividade:
+    build:
+      context: ..
+      dockerfile: atividade/Dockerfile
+    ports:
+      - "127.0.0.1:3001:3001"
+    environment:
+      ADMIN_KEY: ${ADMIN_KEY:?Defina ADMIN_KEY no arquivo de ambiente}
+    volumes:
+      - fotos-da-aula:/data
+    restart: unless-stopped
+
+volumes:
+  fotos-da-aula:

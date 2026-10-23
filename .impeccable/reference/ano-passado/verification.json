@@ -1,0 +1,40 @@
+{
+  "source_unchanged": true,
+  "assets": [
+    {
+      "path": "public/assets/aula-passada/capa-guitarrista.jpg",
+      "public_bytes": 1365876,
+      "original_bytes": 1365755,
+      "original_sha256": "40cd86fe53a5fbb4fe983fb116b62945e3f651dc44788aba4f443f59006a4e1a",
+      "verified_original_bytes_unchanged_except_added_provenance": true
+    },
+    {
+      "path": "public/assets/aula-passada/contraluz-palco.jpg",
+      "public_bytes": 1015170,
+      "original_bytes": 1015049,
+      "original_sha256": "b40379d21a93df7bc2defdf5507154c1b8d49c381d3bd4eaf405615d46520fbc",
+      "verified_original_bytes_unchanged_except_added_provenance": true
+    },
+    {
+      "path": "public/assets/aula-passada/longa-exposicao-big-ben.jpg",
+      "public_bytes": 826966,
+      "original_bytes": 826843,
+      "original_sha256": "0899651e1364caab386871ba9449bc03666ac5f3d990b6ee0b7a3dc7ded007d4",
+      "verified_original_bytes_unchanged_except_added_provenance": true
+    },
+    {
+      "path": "public/assets/aula-passada/longa-exposicao-parque.jpg",
+      "public_bytes": 1029762,
+      "original_bytes": 1029639,
+      "original_sha256": "e7ef61fd5f6e431c9c2bfb7fcbb3b86565af021bd9c570e5b6affa822870bc36",
+      "verified_original_bytes_unchanged_except_added_provenance": true
+    },
+    {
+      "path": "public/assets/aula-passada/composicao-tercos.png",
+      "public_bytes": 599070,
+      "original_bytes": 598940,
+      "original_sha256": "a71df8810c685b03eedf9adeabe8ae7dbede134007203b01502b18009886abd3",
+      "verified_original_bytes_unchanged_except_added_provenance": true
+    }
+  ]
+}

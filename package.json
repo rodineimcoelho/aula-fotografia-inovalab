@@ -1,0 +1,27 @@
+{
+  "name": "fotografia-producao-imagens",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "node --experimental-strip-types scripts/prepare.mjs && tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "test:ui": "playwright test",
+    "test:static": "node scripts/verify-static.mjs"
+  },
+  "dependencies": {
+    "qrcode-generator": "^2.0.4",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/three": "^0.180.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.7"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

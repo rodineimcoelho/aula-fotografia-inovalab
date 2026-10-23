@@ -1,0 +1,1781 @@
+{
+  "source": "aula-ano-passado.pptx",
+  "source_bytes": 9462840,
+  "source_sha256": "f6522a8541e77524d3b7113362a56e393f49f3d5d57719edccccd9d74f302fb4",
+  "slides": [
+    {
+      "slide": 1,
+      "part": "ppt/slides/slide1.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO",
+        "FOTOGRAFIA",
+        "LUZ, COMPOSIÇÃO E ÂNGULO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 2,
+      "part": "ppt/slides/slide2.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image2.png"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image2.png",
+          "resolved_part": "ppt/media/image2.png",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 3,
+      "part": "ppt/slides/slide3.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image3.png"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image3.png",
+          "resolved_part": "ppt/media/image3.png",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 4,
+      "part": "ppt/slides/slide4.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image4.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image4.jpeg",
+          "resolved_part": "ppt/media/image4.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 5,
+      "part": "ppt/slides/slide5.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image5.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image5.jpeg",
+          "resolved_part": "ppt/media/image5.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 6,
+      "part": "ppt/slides/slide6.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO",
+        "CÂMERA"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 7,
+      "part": "ppt/slides/slide7.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image6.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image6.jpeg",
+          "resolved_part": "ppt/media/image6.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 8,
+      "part": "ppt/slides/slide8.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO",
+        "Lente Objetiva",
+        "Espelho Refletor",
+        "Obturador",
+        "Sensor",
+        "Tela de focagem",
+        "Lente condensadora",
+        "Pentaprisma",
+        "Visor"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image7.png"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image7.png",
+          "resolved_part": "ppt/media/image7.png",
+          "external": false
+        },
+        {
+          "id": "rId4",
+          "type": "image",
+          "target": "../media/image8.svg",
+          "resolved_part": "ppt/media/image8.svg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 9,
+      "part": "ppt/slides/slide9.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO",
+        "ISO, EXPOSIÇÃO",
+        "E ABERTURA"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 10,
+      "part": "ppt/slides/slide10.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO",
+        "Fonte:  Expertphotography"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image9.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image9.jpeg",
+          "resolved_part": "ppt/media/image9.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 11,
+      "part": "ppt/slides/slide11.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image10.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image10.jpeg",
+          "resolved_part": "ppt/media/image10.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 12,
+      "part": "ppt/slides/slide12.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image11.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image11.jpeg",
+          "resolved_part": "ppt/media/image11.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 13,
+      "part": "ppt/slides/slide13.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image12.jpeg"
+        },
+        {
+          "relationship_id": "rId4",
+          "part": "ppt/media/image13.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image12.jpeg",
+          "resolved_part": "ppt/media/image12.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId4",
+          "type": "image",
+          "target": "../media/image13.jpeg",
+          "resolved_part": "ppt/media/image13.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 14,
+      "part": "ppt/slides/slide14.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image14.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image14.jpeg",
+          "resolved_part": "ppt/media/image14.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 15,
+      "part": "ppt/slides/slide15.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image15.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image15.jpeg",
+          "resolved_part": "ppt/media/image15.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 16,
+      "part": "ppt/slides/slide16.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO",
+        "COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 17,
+      "part": "ppt/slides/slide17.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image16.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image16.jpeg",
+          "resolved_part": "ppt/media/image16.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 18,
+      "part": "ppt/slides/slide18.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image17.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image17.jpeg",
+          "resolved_part": "ppt/media/image17.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 19,
+      "part": "ppt/slides/slide19.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image18.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image18.jpeg",
+          "resolved_part": "ppt/media/image18.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 20,
+      "part": "ppt/slides/slide20.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image19.png"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image19.png",
+          "resolved_part": "ppt/media/image19.png",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 21,
+      "part": "ppt/slides/slide21.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO",
+        "ILUMINAÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 22,
+      "part": "ppt/slides/slide22.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image20.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image20.jpeg",
+          "resolved_part": "ppt/media/image20.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 23,
+      "part": "ppt/slides/slide23.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image21.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image21.jpeg",
+          "resolved_part": "ppt/media/image21.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 24,
+      "part": "ppt/slides/slide24.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image22.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image22.jpeg",
+          "resolved_part": "ppt/media/image22.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 25,
+      "part": "ppt/slides/slide25.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image23.jpeg"
+        },
+        {
+          "relationship_id": "rId4",
+          "part": "ppt/media/image24.png"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image23.jpeg",
+          "resolved_part": "ppt/media/image23.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId4",
+          "type": "image",
+          "target": "../media/image24.png",
+          "resolved_part": "ppt/media/image24.png",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 26,
+      "part": "ppt/slides/slide26.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO",
+        "EDIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 27,
+      "part": "ppt/slides/slide27.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO",
+        "Lightroom",
+        "Pago",
+        "Snapseed",
+        "Gratuito"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image25.png"
+        },
+        {
+          "relationship_id": "rId4",
+          "part": "ppt/media/image26.png"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image25.png",
+          "resolved_part": "ppt/media/image25.png",
+          "external": false
+        },
+        {
+          "id": "rId4",
+          "type": "image",
+          "target": "../media/image26.png",
+          "resolved_part": "ppt/media/image26.png",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 28,
+      "part": "ppt/slides/slide28.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO",
+        "DESAFIO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 29,
+      "part": "ppt/slides/slide29.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO",
+        "DESAFIO",
+        "CADA GRUPO DEVE TIRAR AS SEGUINTES FOTOS:",
+        "Retrato Tradicional",
+        "Foto Criativa "
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image27.png"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image27.png",
+          "resolved_part": "ppt/media/image27.png",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 30,
+      "part": "ppt/slides/slide30.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        },
+        {
+          "relationship_id": "rId3",
+          "part": "ppt/media/image28.png"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        },
+        {
+          "id": "rId3",
+          "type": "image",
+          "target": "../media/image28.png",
+          "resolved_part": "ppt/media/image28.png",
+          "external": false
+        }
+      ]
+    },
+    {
+      "slide": 31,
+      "part": "ppt/slides/slide31.xml",
+      "text": [
+        "FOTOGRAFIA",
+        "LUZ, ÂNGULO E COMPOSIÇÃO",
+        "TAREFA",
+        "PRODUZIR UMA FOTOGRAFIA CRIATIVA PARA A PRÓXIMA AULA"
+      ],
+      "images": [
+        {
+          "relationship_id": "rId2",
+          "part": "ppt/media/image1.jpeg"
+        }
+      ],
+      "relationships": [
+        {
+          "id": "rId1",
+          "type": "slideLayout",
+          "target": "../slideLayouts/slideLayout7.xml",
+          "resolved_part": "ppt/slideLayouts/slideLayout7.xml",
+          "external": false
+        },
+        {
+          "id": "rId2",
+          "type": "image",
+          "target": "../media/image1.jpeg",
+          "resolved_part": "ppt/media/image1.jpeg",
+          "external": false
+        }
+      ]
+    }
+  ],
+  "media": [
+    {
+      "part": "ppt/media/image1.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image1.jpeg",
+      "bytes": 60644,
+      "sha256": "f1378c7f39f613a674146a7a8b45d79a869b4beb05c9e2e646b5bc0da0b2640d",
+      "slides": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "width": 1280,
+      "height": 480,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image2.png",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image2.png",
+      "bytes": 51857,
+      "sha256": "1a418fd1a2f0740020dda9debc2ce0315ba731c9ac1c8d6fedf8d2bd35ddaafc",
+      "slides": [
+        2
+      ],
+      "width": 816,
+      "height": 467,
+      "format": "PNG",
+      "metadata_keys": [
+        "dpi"
+      ]
+    },
+    {
+      "part": "ppt/media/image3.png",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image3.png",
+      "bytes": 1576767,
+      "sha256": "16913d52d9dc7578d21782cc1e92a3a8fda84786d5cbe37ca104943bd2e477cf",
+      "slides": [
+        3
+      ],
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "metadata_keys": [
+        "dpi"
+      ]
+    },
+    {
+      "part": "ppt/media/image4.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image4.jpeg",
+      "bytes": 1365755,
+      "sha256": "40cd86fe53a5fbb4fe983fb116b62945e3f651dc44788aba4f443f59006a4e1a",
+      "slides": [
+        4
+      ],
+      "width": 1600,
+      "height": 2000,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image5.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image5.jpeg",
+      "bytes": 1015049,
+      "sha256": "b40379d21a93df7bc2defdf5507154c1b8d49c381d3bd4eaf405615d46520fbc",
+      "slides": [
+        5
+      ],
+      "width": 1600,
+      "height": 2000,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image6.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image6.jpeg",
+      "bytes": 75758,
+      "sha256": "ff8dcb05b618b474e36f7dacd60d876af0080cf89282517e5672c65a961ed96b",
+      "slides": [
+        7
+      ],
+      "width": 612,
+      "height": 384,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image7.png",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image7.png",
+      "bytes": 28731,
+      "sha256": "87ff3ebe110d199bacbeb58cd230f68b3e5a496152451954e85935bba2b23c0a",
+      "slides": [
+        8
+      ],
+      "width": 360,
+      "height": 300,
+      "format": "PNG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image8.svg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image8.svg",
+      "bytes": 8621,
+      "sha256": "c6f9f1e6764f4b4ab970c63db625f8908d7735f5d8d4242b02698fbc14204dba",
+      "slides": [
+        8
+      ],
+      "inspection_note": "cannot identify image file 'C:\\\\Users\\\\rodin\\\\Documents\\\\aula-fotografia\\\\.impeccable\\\\reference\\\\ano-passado\\\\media\\\\image8.svg'"
+    },
+    {
+      "part": "ppt/media/image9.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image9.jpeg",
+      "bytes": 98959,
+      "sha256": "635b6bf3bbc0f8df8c4789316945988b89f2a09376bcdfe4ea3c55e1b8902351",
+      "slides": [
+        10
+      ],
+      "width": 690,
+      "height": 552,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image10.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image10.jpeg",
+      "bytes": 136261,
+      "sha256": "056b6e88d3b01ec0332ee0df3a33db90816d7ae4825e651460621b8bd08f1e0f",
+      "slides": [
+        11
+      ],
+      "width": 553,
+      "height": 570,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image11.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image11.jpeg",
+      "bytes": 65083,
+      "sha256": "de4edde07358835e303692207665b6d9b37483be242f9c7100976bcdc6cb2f4d",
+      "slides": [
+        12
+      ],
+      "width": 600,
+      "height": 532,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image12.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image12.jpeg",
+      "bytes": 826843,
+      "sha256": "0899651e1364caab386871ba9449bc03666ac5f3d990b6ee0b7a3dc7ded007d4",
+      "slides": [
+        13
+      ],
+      "width": 1402,
+      "height": 2103,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image13.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image13.jpeg",
+      "bytes": 1029639,
+      "sha256": "e7ef61fd5f6e431c9c2bfb7fcbb3b86565af021bd9c570e5b6affa822870bc36",
+      "slides": [
+        13
+      ],
+      "width": 1296,
+      "height": 1823,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image14.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image14.jpeg",
+      "bytes": 68396,
+      "sha256": "c817ffc49db7d181324754c7f5a1c4322708540dc618485681c194c9989648ba",
+      "slides": [
+        14
+      ],
+      "width": 1200,
+      "height": 340,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image15.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image15.jpeg",
+      "bytes": 124913,
+      "sha256": "73cc0f2d38869205c1da331bdd6b1ffe1d6a77d02eaf7538bf662daadca49dc0",
+      "slides": [
+        15
+      ],
+      "width": 600,
+      "height": 400,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image16.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image16.jpeg",
+      "bytes": 542566,
+      "sha256": "9e22d6a135e2476391d06eee1b71c2c09b0ed58dc3f54df9feb6f6dff64d4182",
+      "slides": [
+        17
+      ],
+      "width": 1639,
+      "height": 1639,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image17.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image17.jpeg",
+      "bytes": 586049,
+      "sha256": "e75ff5880448da8c2afc34c4961d925d664f845506612ef432950e5dcd376e18",
+      "slides": [
+        18
+      ],
+      "width": 1639,
+      "height": 1639,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image18.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image18.jpeg",
+      "bytes": 572489,
+      "sha256": "6b01ed3019a826e24314d6e9d9625b1095d08a8ce093f2c8dae9104d04c417f9",
+      "slides": [
+        19
+      ],
+      "width": 1639,
+      "height": 1639,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image19.png",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image19.png",
+      "bytes": 598940,
+      "sha256": "a71df8810c685b03eedf9adeabe8ae7dbede134007203b01502b18009886abd3",
+      "slides": [
+        20
+      ],
+      "width": 1420,
+      "height": 950,
+      "format": "PNG",
+      "metadata_keys": [
+        "dpi"
+      ]
+    },
+    {
+      "part": "ppt/media/image20.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image20.jpeg",
+      "bytes": 57737,
+      "sha256": "d6f7e2b8806822f3693c49d1826400504449c453d8470c9f77c5dc7bcee87f43",
+      "slides": [
+        22
+      ],
+      "width": 590,
+      "height": 360,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image21.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image21.jpeg",
+      "bytes": 184499,
+      "sha256": "e7e92d259f69240d109ebe28912ab2d6225efdcd79910535f56dac81baaf3925",
+      "slides": [
+        23
+      ],
+      "width": 2000,
+      "height": 1334,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image22.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image22.jpeg",
+      "bytes": 187206,
+      "sha256": "f3cf55663a4c93ad66a41d54e1a0d91dd6be87e0ddbbb88d63dfb3875c95942e",
+      "slides": [
+        24
+      ],
+      "width": 1000,
+      "height": 1000,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image23.jpeg",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image23.jpeg",
+      "bytes": 41429,
+      "sha256": "af6faa66e606c57c248e512474b827b792fe8af15e9fa01c08c56940648054fb",
+      "slides": [
+        25
+      ],
+      "width": 480,
+      "height": 371,
+      "format": "JPEG",
+      "metadata_keys": []
+    },
+    {
+      "part": "ppt/media/image24.png",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image24.png",
+      "bytes": 204474,
+      "sha256": "dc663a94fc1f4ba82d316052b58acda2fc1e4ad0964dde44ab5052e3f24c8541",
+      "slides": [
+        25
+      ],
+      "width": 1000,
+      "height": 1000,
+      "format": "PNG",
+      "metadata_keys": [
+        "dpi"
+      ]
+    },
+    {
+      "part": "ppt/media/image25.png",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image25.png",
+      "bytes": 18589,
+      "sha256": "3b762493278b9a2ee850d7d0984650aeb5c5ff115007afa78f24812b750291fd",
+      "slides": [
+        27
+      ],
+      "width": 720,
+      "height": 703,
+      "format": "PNG",
+      "metadata_keys": [
+        "dpi"
+      ]
+    },
+    {
+      "part": "ppt/media/image26.png",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image26.png",
+      "bytes": 13084,
+      "sha256": "722d1bc3fc12dcef0a1a8692333a1396dceb8aca2ca3224696dd66acb020e051",
+      "slides": [
+        27
+      ],
+      "width": 512,
+      "height": 512,
+      "format": "PNG",
+      "metadata_keys": [
+        "dpi"
+      ]
+    },
+    {
+      "part": "ppt/media/image27.png",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image27.png",
+      "bytes": 18457,
+      "sha256": "6c73c73c3544eece9aa720c224a2c70bcb2736a5b0d3b5cb7ac43b822f5b3b52",
+      "slides": [
+        29
+      ],
+      "width": 691,
+      "height": 691,
+      "format": "PNG",
+      "metadata_keys": [
+        "exif",
+        "dpi",
+        "xmp",
+        "XML:com.adobe.xmp"
+      ]
+    },
+    {
+      "part": "ppt/media/image28.png",
+      "extracted_path": ".impeccable/reference/ano-passado/media/image28.png",
+      "bytes": 39027,
+      "sha256": "ee319a63492f589d09d63ec1e227c05b44974b8e45290233ad12ff7093f1226b",
+      "slides": [
+        30
+      ],
+      "width": 1292,
+      "height": 1292,
+      "format": "PNG",
+      "metadata_keys": [
+        "exif",
+        "dpi",
+        "xmp",
+        "XML:com.adobe.xmp"
+      ]
+    }
+  ],
+  "selected_assets": [
+    {
+      "part": "ppt/media/image4.jpeg",
+      "file": "capa-guitarrista.jpg",
+      "slide": 4,
+      "width": 1600,
+      "height": 2000,
+      "uses": [
+        "capa",
+        "retrato em ambiente",
+        "luz artificial de palco",
+        "separação do fundo"
+      ],
+      "notes": "Fotografia limpa. Rosto em perfil, corpo à esquerda e holofote visível à direita. Boa capa e cena para simulação didática de exposição. Não comprova ISO, abertura ou velocidade reais. A luz no rosto é mista; evitar chamar de luz frontal ou lateral pura.",
+      "public_path": "public/assets/aula-passada/capa-guitarrista.jpg",
+      "url": "/assets/aula-passada/capa-guitarrista.jpg",
+      "origin": "User-provided aula-ano-passado.pptx",
+      "generation": "No AI generation",
+      "transforms": "None. Original compressed image bytes, with provenance metadata added after copying.",
+      "copyright": "No new license inferred. Rights and credit remain with original authors; supplied PPTX does not identify every photographer."
+    },
+    {
+      "part": "ppt/media/image5.jpeg",
+      "file": "contraluz-palco.jpg",
+      "slide": 5,
+      "width": 1600,
+      "height": 2000,
+      "uses": [
+        "contraluz artificial",
+        "sujeito no terço direito",
+        "espaço à esquerda",
+        "ponto de vista por trás"
+      ],
+      "notes": "Fotografia limpa. Músico visto por trás e fonte luminosa no fundo. Rosto não visível. Não é exemplo de simetria nem demonstra iluminação de três pontos.",
+      "public_path": "public/assets/aula-passada/contraluz-palco.jpg",
+      "url": "/assets/aula-passada/contraluz-palco.jpg",
+      "origin": "User-provided aula-ano-passado.pptx",
+      "generation": "No AI generation",
+      "transforms": "None. Original compressed image bytes, with provenance metadata added after copying.",
+      "copyright": "No new license inferred. Rights and credit remain with original authors; supplied PPTX does not identify every photographer."
+    },
+    {
+      "part": "ppt/media/image12.jpeg",
+      "file": "longa-exposicao-big-ben.jpg",
+      "slide": 13,
+      "width": 1402,
+      "height": 2103,
+      "uses": [
+        "longa exposição",
+        "rastros de luz",
+        "linhas diagonais que conduzem o olhar"
+      ],
+      "notes": "Fotografia limpa. Torre reconhecível e rastros diagonais coloridos. Exemplo de movimento acumulado durante a exposição; não atribuir tempo de obturador exato.",
+      "public_path": "public/assets/aula-passada/longa-exposicao-big-ben.jpg",
+      "url": "/assets/aula-passada/longa-exposicao-big-ben.jpg",
+      "origin": "User-provided aula-ano-passado.pptx",
+      "generation": "No AI generation",
+      "transforms": "None. Original compressed image bytes, with provenance metadata added after copying.",
+      "copyright": "No new license inferred. Rights and credit remain with original authors; supplied PPTX does not identify every photographer."
+    },
+    {
+      "part": "ppt/media/image13.jpeg",
+      "file": "longa-exposicao-parque.jpg",
+      "slide": 13,
+      "width": 1296,
+      "height": 1823,
+      "uses": [
+        "longa exposição",
+        "movimento circular",
+        "luz artificial",
+        "contraste entre luz e fundo escuro"
+      ],
+      "notes": "Fotografia limpa de brinquedo de parque em movimento. Rastros curvos claros. Não é um exemplo rigoroso de simetria; não atribuir configurações de captura.",
+      "public_path": "public/assets/aula-passada/longa-exposicao-parque.jpg",
+      "url": "/assets/aula-passada/longa-exposicao-parque.jpg",
+      "origin": "User-provided aula-ano-passado.pptx",
+      "generation": "No AI generation",
+      "transforms": "None. Original compressed image bytes, with provenance metadata added after copying.",
+      "copyright": "No new license inferred. Rights and credit remain with original authors; supplied PPTX does not identify every photographer."
+    },
+    {
+      "part": "ppt/media/image19.png",
+      "file": "composicao-tercos.png",
+      "slide": 20,
+      "width": 1420,
+      "height": 950,
+      "uses": [
+        "regra dos terços",
+        "espaço negativo",
+        "silhueta em contraluz natural",
+        "horizonte no terço inferior"
+      ],
+      "notes": "Fotografia com grade branca incorporada aos pixels do arquivo original. Não desenhar segunda grade sobre ela. Pessoa alinhada aproximadamente ao terço direito, horizonte junto ao terço inferior. A grade não pode ser removida sem editar a imagem.",
+      "public_path": "public/assets/aula-passada/composicao-tercos.png",
+      "url": "/assets/aula-passada/composicao-tercos.png",
+      "origin": "User-provided aula-ano-passado.pptx",
+      "generation": "No AI generation",
+      "transforms": "None. Original compressed image bytes, with provenance metadata added after copying.",
+      "copyright": "No new license inferred. Rights and credit remain with original authors; supplied PPTX does not identify every photographer."
+    }
+  ],
+  "limitations": [
+    "Only four clean standalone photos plus one photograph with an embedded thirds grid are present.",
+    "Images16-18 are composition reference drawings; images20-24 are lighting renders, diagrams, or equipment images, not documentary photo examples.",
+    "Image3 is a branded poster/collage, images14-15 are ISO comparison graphics, and images27-28 are QR codes.",
+    "No source photo unambiguously demonstrates pure frontal light, pure side light, soft light, symmetry, framing, or repetition. Use additional real photos or clearly labeled semantic demonstrations for those topics.",
+    "Camera settings were not inferred from appearance. Original PPTX was not changed."
+  ]
+}

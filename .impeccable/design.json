@@ -1,0 +1,424 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-23T20:56:18.971Z",
+  "title": "Design System: Fotografia e Produção de Imagens",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Coral de decisão",
+        "tonalRamp": [
+          "oklch(15% 0.1105 26.70)",
+          "oklch(26% 0.1105 26.70)",
+          "oklch(38% 0.1105 26.70)",
+          "oklch(49% 0.1105 26.70)",
+          "oklch(61% 0.1105 26.70)",
+          "oklch(72% 0.1105 26.70)",
+          "oklch(84% 0.1105 26.70)",
+          "oklch(95% 0.1105 26.70)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Coral claro de interação",
+        "tonalRamp": [
+          "oklch(15% 0.0689 27.80)",
+          "oklch(26% 0.0689 27.80)",
+          "oklch(38% 0.0689 27.80)",
+          "oklch(49% 0.0689 27.80)",
+          "oklch(61% 0.0689 27.80)",
+          "oklch(72% 0.0689 27.80)",
+          "oklch(84% 0.0689 27.80)",
+          "oklch(95% 0.0689 27.80)"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Fundo carvão",
+        "tonalRamp": [
+          "oklch(15% 0.0043 264.47)",
+          "oklch(26% 0.0043 264.47)",
+          "oklch(38% 0.0043 264.47)",
+          "oklch(49% 0.0043 264.47)",
+          "oklch(61% 0.0043 264.47)",
+          "oklch(72% 0.0043 264.47)",
+          "oklch(84% 0.0043 264.47)",
+          "oklch(95% 0.0043 264.47)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Superfície elevada em tom",
+        "tonalRamp": [
+          "oklch(15% 0.0077 274.64)",
+          "oklch(26% 0.0077 274.64)",
+          "oklch(38% 0.0077 274.64)",
+          "oklch(49% 0.0077 274.64)",
+          "oklch(61% 0.0077 274.64)",
+          "oklch(72% 0.0077 274.64)",
+          "oklch(84% 0.0077 274.64)",
+          "oklch(95% 0.0077 274.64)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Texto marfim",
+        "tonalRamp": [
+          "oklch(15% 0.0040 106.48)",
+          "oklch(26% 0.0040 106.48)",
+          "oklch(38% 0.0040 106.48)",
+          "oklch(49% 0.0040 106.48)",
+          "oklch(61% 0.0040 106.48)",
+          "oklch(72% 0.0040 106.48)",
+          "oklch(84% 0.0040 106.48)",
+          "oklch(95% 0.0040 106.48)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Cinza de apoio",
+        "tonalRamp": [
+          "oklch(15% 0.0018 247.85)",
+          "oklch(26% 0.0018 247.85)",
+          "oklch(38% 0.0018 247.85)",
+          "oklch(49% 0.0018 247.85)",
+          "oklch(61% 0.0018 247.85)",
+          "oklch(72% 0.0018 247.85)",
+          "oklch(84% 0.0018 247.85)",
+          "oklch(95% 0.0018 247.85)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Linha divisória",
+        "tonalRamp": [
+          "oklch(15% 0.0052 271.28)",
+          "oklch(26% 0.0052 271.28)",
+          "oklch(38% 0.0052 271.28)",
+          "oklch(49% 0.0052 271.28)",
+          "oklch(61% 0.0052 271.28)",
+          "oklch(72% 0.0052 271.28)",
+          "oklch(84% 0.0052 271.28)",
+          "oklch(95% 0.0052 271.28)"
+        ]
+      },
+      "control-border": {
+        "role": "neutral",
+        "displayName": "Contorno de controle",
+        "tonalRamp": [
+          "oklch(15% 0.0033 264.53)",
+          "oklch(26% 0.0033 264.53)",
+          "oklch(38% 0.0033 264.53)",
+          "oklch(49% 0.0033 264.53)",
+          "oklch(61% 0.0033 264.53)",
+          "oklch(72% 0.0033 264.53)",
+          "oklch(84% 0.0033 264.53)",
+          "oklch(95% 0.0033 264.53)"
+        ]
+      },
+      "control-hover": {
+        "role": "neutral",
+        "displayName": "Fundo de interação",
+        "tonalRamp": [
+          "oklch(15% 0.0078 264.44)",
+          "oklch(26% 0.0078 264.44)",
+          "oklch(38% 0.0078 264.44)",
+          "oklch(49% 0.0078 264.44)",
+          "oklch(61% 0.0078 264.44)",
+          "oklch(72% 0.0078 264.44)",
+          "oklch(84% 0.0078 264.44)",
+          "oklch(95% 0.0078 264.44)"
+        ]
+      },
+      "focus": {
+        "role": "neutral",
+        "displayName": "Foco claro",
+        "tonalRamp": [
+          "oklch(15% 0.0385 31.96)",
+          "oklch(26% 0.0385 31.96)",
+          "oklch(38% 0.0385 31.96)",
+          "oklch(49% 0.0385 31.96)",
+          "oklch(61% 0.0385 31.96)",
+          "oklch(72% 0.0385 31.96)",
+          "oklch(84% 0.0385 31.96)",
+          "oklch(95% 0.0385 31.96)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Título do slide",
+        "purpose": "Título principal em Figtree 500, com escala atual de 2.6cqw; 32px no telefone e papel específico na capa."
+      },
+      "headline": {
+        "displayName": "Subtítulo",
+        "purpose": "Explicação intermediária."
+      },
+      "title": {
+        "displayName": "Conclusão",
+        "purpose": "Chamada ou conclusão didática."
+      },
+      "body": {
+        "displayName": "Corpo",
+        "purpose": "Texto da área central."
+      },
+      "label": {
+        "displayName": "Legenda",
+        "purpose": "Apoio e dados secundários."
+      },
+      "activity-display": {
+        "displayName": "Título da atividade",
+        "purpose": "Título de página com escala própria."
+      },
+      "activity-body": {
+        "displayName": "Corpo da atividade",
+        "purpose": "Leitura e formulários."
+      },
+      "cover-display": {
+        "displayName": "Primeira linha da capa",
+        "purpose": "Somente a primeira linha do título da capa, em Figtree peso 600; tamanho próprio no telefone."
+      },
+      "cover-continuation": {
+        "displayName": "Continuações da capa",
+        "purpose": "Segunda e terceira linhas, em Figtree peso 400 e .8em relativos ao título."
+      },
+      "dictionary-definition": {
+        "displayName": "Definição formal",
+        "purpose": "Trecho de verbete atribuído, em Figtree, sem substituir a escala de corpo da interface."
+      },
+      "production-title": {
+        "displayName": "Título do estudo sem serifa",
+        "purpose": "Texto da arte experimental em Figtree; é conteúdo manipulável do estudo de produção."
+      },
+      "production-serif": {
+        "displayName": "Comparação didática com serifa",
+        "purpose": "Georgia com Times New Roman e serif como fallback, em itálico, somente em #poster-type.type-serif strong. Alternativa de conteúdo selecionável no estudo de produção; nunca identidade da interface."
+      },
+      "options-label": {
+        "displayName": "Opções secundárias",
+        "purpose": "Summary de details e rótulos de opções recolhidas; 14px no telefone."
+      },
+      "quiz-question": {
+        "displayName": "Pergunta do quiz",
+        "purpose": "Pergunta principal; 24px no telefone em roteiro guiado, com revelação por etapas sem pontuação."
+      },
+      "tower-cue": {
+        "displayName": "Mensagem grande da torre",
+        "purpose": "Somente conceito/consequência em spans grandes nas torres internas a partir de 1200px no modo Telão; sem controles ou imagens."
+      },
+      "presentation-cue": {
+        "displayName": "Orientação central da etapa",
+        "purpose": "Frase da etapa no telefone/Estudo ou abaixo de 1200px; acompanha a demonstração no centro."
+      },
+      "teacher-title": {
+        "displayName": "Título do modo professor",
+        "purpose": "Identifica o slide na página independente do professor; 29px no telefone."
+      },
+      "teacher-body": {
+        "displayName": "Corpo do modo professor",
+        "purpose": "Leitura da página do notebook, sem ampliação cqw do telão."
+      },
+      "teacher-topics": {
+        "displayName": "Tópicos do professor",
+        "purpose": "Lista concisa dos conceitos do slide; 20px no telefone."
+      },
+      "teacher-step-topics": {
+        "displayName": "Etiquetas da etapa",
+        "purpose": "Valores e palavras-chave da etapa atual, visíveis acima dos tópicos."
+      },
+      "teacher-step": {
+        "displayName": "Etapa clicável do professor",
+        "purpose": "Lista de etapas com estado atual em superfície neutra e texto coral."
+      }
+    },
+    "shadows": [
+      {
+        "name": "guias-de-ensaio",
+        "value": "inset 0 0 0 1px #707173",
+        "purpose": "Somente modo opcional de guias de segmentação do telão; não é elevação."
+      }
+    ],
+    "motion": [
+      {
+        "name": "agulha-do-fotometro",
+        "value": "left .16s ease-out",
+        "purpose": "Atualização da medição; desativada por prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "apresentacao-telefone",
+        "value": "700px"
+      },
+      {
+        "name": "atividade-telefone",
+        "value": "650px"
+      },
+      {
+        "name": "apresentacao-baixa",
+        "value": "(max-height:650px) and (min-width:701px)"
+      },
+      {
+        "name": "apresentacao-panoramica",
+        "value": "(min-aspect-ratio:2/1) and (min-width:701px)"
+      },
+      {
+        "name": "mensagens-laterais",
+        "value": "1200px"
+      },
+      {
+        "name": "professor-compacto",
+        "value": "1000px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botão principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ação principal da demonstração, com consequência próxima.",
+      "html": "<button class=\"ds-button ds-primary\">Abrir</button>",
+      "css": ".ds-button{font:400 16px/1.2 Figtree,Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:40px;padding:.6em .9em;border:1px solid var(--ds-border,#707173);border-radius:3px;color:var(--ink,#efefec);background:var(--ground,#151618);cursor:pointer}.ds-button:hover:not(:disabled){background:#292b2f;border-color:var(--ink,#efefec)}.ds-button:focus-visible{outline:2px solid var(--focus,#f2d1ca);outline-offset:4px}.ds-button:disabled{opacity:.43;cursor:default}.ds-primary{background:var(--accent,#cf786f);border-color:var(--accent,#cf786f);color:var(--ground,#151618)}.ds-primary:hover:not(:disabled){background:#dfa69e;border-color:#dfa69e}"
+    },
+    {
+      "name": "Botão secundário",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Ação complementar ou reversível.",
+      "html": "<button class=\"ds-button\">Fechar</button>",
+      "css": ".ds-button{font:400 16px/1.2 Figtree,Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:40px;padding:.6em .9em;border:1px solid var(--ds-border,#707173);border-radius:3px;color:var(--ink,#efefec);background:var(--ground,#151618);cursor:pointer}.ds-button:hover:not(:disabled){background:#292b2f;border-color:var(--ink,#efefec)}.ds-button:focus-visible{outline:2px solid var(--focus,#f2d1ca);outline-offset:4px}.ds-button:disabled{opacity:.43;cursor:default}"
+    },
+    {
+      "name": "Ação de texto",
+      "kind": "button",
+      "refersTo": "text-action",
+      "description": "Entrada secundária para outra etapa.",
+      "html": "<button class=\"ds-button ds-text\">Voltar ao laboratório</button>",
+      "css": ".ds-button{font:400 16px/1.2 Figtree,Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:40px;padding:.6em .9em;border:1px solid var(--ds-border,#707173);border-radius:3px;color:var(--ink,#efefec);background:var(--ground,#151618);cursor:pointer}.ds-button:hover:not(:disabled){background:#292b2f;border-color:var(--ink,#efefec)}.ds-button:focus-visible{outline:2px solid var(--focus,#f2d1ca);outline-offset:4px}.ds-button:disabled{opacity:.43;cursor:default}.ds-text{padding:.4em 0;border:0;justify-content:flex-start;color:var(--accent,#cf786f)}.ds-text:hover:not(:disabled){background:transparent;color:var(--ink,#efefec)}"
+    },
+    {
+      "name": "Campo da atividade",
+      "kind": "input",
+      "refersTo": "input-activity",
+      "description": "Rótulo persistente, campo escuro e foco visível.",
+      "html": "<label class=\"ds-label\">Título da fotografia<input class=\"ds-input\" value=\"Linhas e luz\"></label>",
+      "css": ".ds-label{display:flex;flex-direction:column;gap:8px;font:15px/1.5 Figtree,Arial,sans-serif;color:var(--ink,#efefec)}.ds-input{font:16px/1.5 Figtree,Arial,sans-serif;background:var(--ground,#151618);border:1px solid #707173;color:var(--ink,#efefec);border-radius:3px;padding:12px;min-width:0;max-width:100%;caret-color:var(--accent,#cf786f)}.ds-input:focus-visible{outline:2px solid var(--focus,#f2d1ca);outline-offset:4px}"
+    },
+    {
+      "name": "Navegação da apresentação",
+      "kind": "nav",
+      "description": "Setas executam etapas antes de trocar slides; progresso inclui slide e etapa. Durante captura, setas desabilitadas e palco aria-busy. Shift+seta pula slides; navegação manual é uma opção.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Slides\"><button class=\"ds-nav-button\" disabled aria-label=\"Slide anterior\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M19 12H5m6-6-6 6 6 6\"/></svg></button><span class=\"ds-progress\">04 / 20 · 3/9</span><span class=\"ds-tools\"><button class=\"ds-nav-button\" aria-label=\"Abrir índice\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><rect x=\"4\" y=\"4\" width=\"6\" height=\"6\"/><rect x=\"14\" y=\"4\" width=\"6\" height=\"6\"/><rect x=\"4\" y=\"14\" width=\"6\" height=\"6\"/><rect x=\"14\" y=\"14\" width=\"6\" height=\"6\"/></svg></button><button class=\"ds-nav-button\" aria-label=\"Opções da apresentação\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8\"/><path d=\"M8 9h8M8 15h8M10 7v4m4 2v4\"/></svg></button></span><button class=\"ds-nav-button\" aria-label=\"Próximo slide\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></button></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:.65em;border:0;padding-top:0;font:clamp(14px,1cqw,40px)/1.4 Figtree,Arial,sans-serif;color:var(--ink,#efefec)}.ds-nav-button{display:inline-flex;align-items:center;justify-content:center;width:40px;min-height:40px;flex:none;border:0;border-radius:3px;padding:.35em;font:inherit;line-height:1.2;color:var(--ink,#efefec);background:transparent;cursor:pointer}.ds-nav-button svg{width:1.2em;height:1.2em;min-width:16px;min-height:16px}.ds-nav-button:hover:not(:disabled){color:var(--accent,#cf786f);background:transparent}.ds-nav-button:focus-visible{outline:2px solid var(--focus,#f2d1ca);outline-offset:4px}.ds-nav-button:disabled{opacity:.43;cursor:default}.ds-progress{font-variant-numeric:tabular-nums;color:var(--muted,#b6b7b8);font-size:.9em;margin-right:auto}.ds-tools{display:flex;gap:.2em;align-items:center}.ds-tools .ds-nav-button{width:auto;min-width:36px}@media(max-width:700px){.ds-nav{font-size:14px;gap:8px}.ds-nav-button{width:32px}.ds-tools .ds-nav-button{min-width:32px;min-height:36px}}"
+    },
+    {
+      "name": "Seleção de peça e etapa do professor",
+      "kind": "button",
+      "description": "Peça da câmera: coral preenchido e destaque no conjunto central. Etapa do professor: superfície neutra com texto coral e aria-current=step. São seleções distintas; o professor navega de modo independente da projeção. Acima de 700px, a coluna do professor mantém a etapa atual visível; no telefone, os tópicos conservam o início da leitura.",
+      "html": "<div class=\"ds-piece-tabs\" role=\"group\" aria-label=\"Peças da câmera\"><button class=\"ds-button ds-primary\" aria-pressed=\"true\">Lente</button><button class=\"ds-button\" aria-pressed=\"false\">Sensor</button></div><ol class=\"ds-teacher-roadmap\"><li><button class=\"ds-teacher-step\" aria-current=\"step\">Abertura maior: compare o desfoque com brilho igualado.</button></li><li><button class=\"ds-teacher-step\">Abertura menor: mais planos aparecem nítidos.</button></li></ol>",
+      "css": ".ds-button{font:400 16px/1.2 Figtree,Arial,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:40px;padding:.6em .9em;border:1px solid var(--ds-border,#707173);border-radius:3px;color:var(--ink,#efefec);background:var(--ground,#151618);cursor:pointer}.ds-button:hover:not(:disabled){background:#292b2f;border-color:var(--ink,#efefec)}.ds-button:focus-visible{outline:2px solid var(--focus,#f2d1ca);outline-offset:4px}.ds-button:disabled{opacity:.43;cursor:default}.ds-primary{background:var(--accent,#cf786f);border-color:var(--accent,#cf786f);color:var(--ground,#151618)}.ds-primary:hover:not(:disabled){background:#dfa69e;border-color:#dfa69e}.ds-piece-tabs{display:flex;gap:.4em;flex-wrap:wrap}.ds-piece-tabs .ds-button{font-size:14px;flex:1}.ds-teacher-roadmap{margin:0;padding-left:28px;display:flex;flex-direction:column;gap:8px;color:var(--ink,#efefec);font-family:Figtree,Arial,sans-serif}.ds-teacher-roadmap li::marker{color:var(--muted,#b6b7b8);font-size:14px}.ds-teacher-step{background:transparent;border:0;border-radius:3px;display:block;text-align:left;font:400 16px/1.4 Figtree,Arial,sans-serif;color:var(--ink,#efefec);padding:10px 12px;width:100%;min-height:40px;cursor:pointer}.ds-teacher-step[aria-current=step]{background:var(--surface,#202125);color:var(--accent,#cf786f)}.ds-teacher-step:hover:not(:disabled){background:#292b2f}.ds-teacher-step:focus-visible{outline:2px solid var(--focus,#f2d1ca);outline-offset:4px}",
+      "refersTo": "teacher-step-current"
+    },
+    {
+      "name": "Controles da demonstração e valor",
+      "kind": "input",
+      "description": "Controles centrais abertos e visíveis durante o roteiro; as setas mudam seus valores. Summaries ficam ocultos no roteiro guiado e disponíveis na navegação manual.",
+      "html": "<details class=\"ds-manual ds-guided\" open><summary>Controles da demonstração</summary><div class=\"ds-manual-content\"><label class=\"ds-range\"><span>Abertura <output>f/4</output></span><input type=\"range\" min=\"0\" max=\"7\" value=\"2\" aria-label=\"Abertura\"></label></div></details>",
+      "css": ".ds-manual{flex:none;font:clamp(13px,.9cqw,36px) Figtree,Arial,sans-serif;color:var(--muted,#b6b7b8)}.ds-manual>summary{cursor:pointer;width:fit-content;padding:.4em 0;color:var(--muted,#b6b7b8)}.ds-manual>summary:focus-visible,.ds-range input:focus-visible{outline:2px solid var(--focus,#f2d1ca);outline-offset:4px}.ds-manual-content{display:flex;flex-direction:column;gap:1em;padding-top:.7em}.ds-range{display:flex;flex-direction:column;gap:.15em;min-width:0;color:var(--ink,#efefec)}.ds-range>span{display:flex;justify-content:space-between;gap:.4em;align-items:baseline;font-size:clamp(13px,.95cqw,38px)}.ds-range output{color:var(--accent,#cf786f);font-variant-numeric:tabular-nums}.ds-range input{width:100%;min-height:32px;margin:0;accent-color:var(--accent,#cf786f);cursor:pointer}@media(max-width:700px){.ds-manual{font-size:14px}.ds-manual-content{gap:16px}.ds-range>span{font-size:12px;flex-wrap:wrap}.ds-range output{font-size:13px}}.ds-manual.ds-guided{color:var(--ink,#efefec)}.ds-manual.ds-guided>summary{display:none}.ds-manual.ds-guided .ds-manual-content{gap:.6cqw;padding-top:.2cqw}",
+      "refersTo": "manual-summary"
+    },
+    {
+      "name": "Resultado da atividade",
+      "kind": "card",
+      "description": "Registro reto e plano, com classificação, título e resultado textual; a fotografia real é inserida pela aplicação.",
+      "html": "<article class=\"ds-result\"><span class=\"ds-rank\">1º lugar · Escolha popular</span><h3>Linhas e luz</h3><p class=\"ds-score\">4,7 / 5</p><p class=\"ds-muted\">Grupo 1 · 12 avaliações</p></article>",
+      "css": ".ds-result{padding:20px 0;border-bottom:1px solid var(--rule,#424346);font:16px/1.5 Figtree,Arial,sans-serif;color:var(--ink,#efefec)}.ds-rank{color:var(--muted,#b6b7b8);font-size:14px}.ds-result h3{font-size:21px;font-weight:500;line-height:1.25;margin:0}.ds-score{font-size:27px;color:var(--accent,#cf786f);margin:8px 0}.ds-muted{color:var(--muted,#b6b7b8);margin:8px 0}"
+    },
+    {
+      "name": "Comparação tipográfica do estudo",
+      "kind": "custom",
+      "refersTo": "production-type-serif",
+      "description": "Figtree e Georgia em itálico são alternativas somente do título da arte, apresentadas após a comparação de 16 modos de mesclagem com as mesmas fotos e opacidade de 65%; controles permanecem visíveis.",
+      "html": "<div class=\"ds-production-type\"><strong>Olhe de novo.</strong><span>Estudo de composição · evento fictício</span></div><div class=\"ds-production-type ds-serif\"><strong>Olhe de novo.</strong><span>Estudo de composição · evento fictício</span></div>",
+      "css": ".ds-production-type{max-width:88%;padding:.85cqw;background:#151618eb;color:var(--ink,#efefec);display:flex;flex-direction:column;gap:.3em;max-height:88%;overflow:hidden;font-family:Figtree,Arial,sans-serif}.ds-production-type strong{font-size:clamp(24px,3cqw,115px);line-height:1.05;font-weight:600;max-width:15ch;overflow-wrap:anywhere}.ds-production-type span{font-size:clamp(12px,1cqw,40px)}@media(max-width:700px){.ds-production-type{padding:12px}.ds-production-type strong{font-size:30px}.ds-production-type span{font-size:11px}}.ds-production-type.ds-serif strong{font-family:Georgia,'Times New Roman',serif;font-style:italic}"
+    },
+    {
+      "name": "Mensagem da torre",
+      "kind": "custom",
+      "refersTo": "tower-message",
+      "description": "Conceito ou consequência em palavras grandes, centralizadas nos dois eixos; controles, resultado e fotômetro continuam no centro.",
+      "html": "<aside class=\"ds-tower\" aria-label=\"Conceito em destaque\"><p class=\"ds-tower-cue\"><span>ISO</span><span>1600</span></p></aside>",
+      "css": ".ds-tower{display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:2.3cqw 1cqw;background:var(--ground,#151618)}.ds-tower-cue{display:flex;flex-direction:column;gap:.4em;margin:0;font:500 clamp(24px,1.65cqw,68px)/1.2 Figtree,Arial,sans-serif;color:var(--ink,#efefec)}.ds-tower-cue span{display:block;overflow-wrap:normal;hyphens:none}.ds-tower-cue{width:100%;text-align:center;align-items:center}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Uma decisão por vez",
+    "overview": "Um campo escuro e limpo dá lugar a uma demonstração grande, uma decisão compreensível e uma consequência visível. A geometria do diafragma, a câmera tridimensional esquemática, as fotografias e a pergunta do quiz constituem o conteúdo principal. O centro reúne o assunto, o resultado e todos os controles. As duas torres internas do telão podem mostrar somente conceitos e consequências em palavras grandes. Um roteiro pelas setas conduz as interações, mantendo os controles e os valores usados na etapa visíveis para tornar a mudança legível.\n\nA direção escolhida traduziu a progressão e a precisão do mundo de dobras para o pedido explícito de fundo escuro, limpeza e centralização. Não há textura de papel, ornamento de origami ou brilho decorativo. A apresentação tem uma composição física própria para o telão; a aplicação da atividade compartilha a identidade visual e usa um fluxo normal de formulários e imagens.",
+    "keyCharacteristics": [
+      "Fundo neutro escuro, texto claro e coral reservado à ação e à consequência.",
+      "Figtree com hierarquia de tamanho, peso, espaço e contraste; a capa distingue a primeira linha das demais.",
+      "Diagramas, fotografias e geometria contável como conteúdo de maior presença.",
+      "Controles retangulares discretos e estados legíveis.",
+      "Assunto e resultado no centro; torres internas somente com palavras grandes e torres externas vazias; capa com quatro torres vazias.",
+      "Setas executam etapas recuperáveis antes de trocar de slide; controles manuais continuam no centro.",
+      "Navegação mínima no rodapé e controles visíveis durante o roteiro; leitura reunida no modo de estudo.",
+      "Modo professor independente, centrado em tópicos curtos, com a mesma paleta e família tipográfica."
+    ],
+    "rules": [
+      {
+        "name": "The Consequência Rule",
+        "body": "Use o coral para indicar uma ação, uma seleção ou o efeito de uma escolha; preserve o fundo neutro ao redor.",
+        "section": "colors"
+      },
+      {
+        "name": "The Escala do Telão Rule",
+        "body": "A tipografia da apresentação acompanha a largura do contêiner com `cqw` e limites `clamp`; a atividade usa uma escala de leitura de página independente.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tipografia como Conteúdo Rule",
+        "body": "Restrinja Georgia e o itálico ao título opcional do estudo de produção de imagens; mantenha Figtree nos títulos, controles e textos da interface que o envolve.",
+        "section": "typography"
+      },
+      {
+        "name": "The Centro Livre Rule",
+        "body": "Mantenha assunto, resultado, fotômetro e todos os controles no centro. Nas torres internas, permita somente palavras grandes de conceito e consequência. Preserve as torres externas vazias e, na capa, as quatro torres vazias.",
+        "section": "layout"
+      },
+      {
+        "name": "The Uma Camada de Decisão Rule",
+        "body": "No roteiro padrão, use as setas para executar uma etapa de cada vez, mantendo controles e valores visíveis. Não repita cabeçalho, seção ou explicação que a própria demonstração já torna clara.",
+        "section": "layout"
+      },
+      {
+        "name": "The Profundidade Didática Rule",
+        "body": "Reserve volume e efeitos de imagem para tornar o assunto compreensível; organize a interface com tom, linhas e espaço.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** usar o coral para ação, seleção e consequência visível.",
+      "**Do** preservar a proporção 1–1–4–1–1 e reservar as torres internas somente a palavras grandes de conceito e consequência.",
+      "**Do** manter as torres externas vazias e todas as torres vazias na capa.",
+      "**Do** manter todos os controles no centro e visíveis durante o roteiro, executando as etapas pelas setas enquanto os valores mudam.",
+      "**Do** manter o modo professor independente e indicar slide, etapa atual e próxima ação sem prometer sincronização.",
+      "**Do** manter o resultado da câmera central e empilhar modelo e resultado no telefone; posicionar o fotômetro abaixo da imagem do laboratório.",
+      "**Do** manter diagramas, fotografias e controles relacionados próximos e legíveis.",
+      "**Do** usar Figtree local e registrar a origem dos recursos em ASSETS.md.",
+      "**Do** manter foco visível, rótulos explícitos e equivalentes HTML para as demonstrações.",
+      "**Do** usar o contêiner normal de leitura e formulários na atividade.",
+      "**Do** manter a comparação Georgia/Figtree restrita ao título da arte experimental, com o restante da interface em Figtree."
+    ],
+    "donts": [
+      "**Don't** acrescentar textura de papel, origami, glows ou sombras decorativas à interface.",
+      "**Don't** ocupar as torres externas nem inserir controles, imagens ou rótulos pequenos nas torres internas.",
+      "**Don't** atribuir pontuação a revelações do quiz guiado ou alterar respostas salvas durante essas etapas.",
+      "**Don't** repetir o nome da aula no cabeçalho, a seção no rodapé ou um título genérico acima da pergunta do quiz.",
+      "**Don't** transformar a geometria didática em ornamento ou distorcer fotografias para preencher espaço.",
+      "**Don't** tratar cores das fotografias e materiais 3D como novos tokens de interface.",
+      "**Don't** acrescentar sobretítulos decorativos ou fontes de sistema como identidade de títulos; a serifa didática opcional do estudo de produção é conteúdo, não identidade.",
+      "**Don't** remover explicações de estado e depender somente da cor."
+    ]
+  }
+}

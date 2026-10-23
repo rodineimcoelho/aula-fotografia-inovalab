@@ -1,0 +1,22 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/canon.html",
+          ".impeccable/mocks/decision/museu.html",
+          ".impeccable/mocks/decision/pranchas.html",
+          ".impeccable/mocks/decision/replay.html",
+          ".impeccable/questions/ensaio-r1-template.html",
+          ".impeccable/questions/replay-template.html"
+        ],
+        "createdAt": "2026-10-23T14:28:44.238Z",
+        "reason": "Agent: alternativas de direcao visual anteriores ao DESIGN.md, nao escolhidas pelo usuario e mantidas como referencias historicas. A tipografia original desses seis arquivos de referencia deve ser preservada; a excecao nao se aplica a apresentacao nem a atividade."
+      }
+    ]
+  }
+}
