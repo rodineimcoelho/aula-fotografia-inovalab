@@ -7,7 +7,6 @@ As decisões abaixo não bloquearam a construção. A apresentação e a ativida
 | Repositório | Projeto preparado para GitHub Pages por GitHub Actions. | Conta, nome do repositório e URL definitiva. |
 | Atividade | Aplicação Node separada, com armazenamento SQLite e arquivos em disco persistente. | Servidor ou hospedagem disponível e endereço HTTPS. |
 | Turma | Grupos e códigos individuais criados pelo professor no painel. | Quantidade aproximada e como distribuir os códigos na chegada. |
-| Avaliação | Composição, uso da luz e intenção/criatividade, notas de 1 a 5, resultados populares e dos jurados separados. | Critérios e desempate; confirmar participação de jurados. |
 | Missão | Uma fotografia editada por grupo, com título; sem exigir cartaz adicional na entrega. | Tema ou restrições do espaço da escola. |
 | Quiz | Conduzido pelo professor, com respostas e explicações no telão. | Se deseja participação individual conectada em uma próxima etapa. |
 | Telão | Faixas 1–1–4–1–1, só o centro com conteúdo; saída única. | Resolução efetiva e teste com o operador. |
@@ -21,7 +20,7 @@ As notas ao professor incluem uma versão de 50 minutos de teoria. A apresentaç
 2. Use as setas para navegar, **I** para índice, **N** para notas e **F** para tela cheia.
 3. Para iniciar a atividade separada, execute `npm --prefix atividade start`. Acesse `http://127.0.0.1:3001/admin` para o professor e `http://127.0.0.1:3001` para participantes.
 4. A chave do professor fica no ambiente do servidor; sem uma chave configurada, o comando de início mostra uma chave temporária. Se houver uma prévia local já iniciada, a configuração está em `atividade/.env`, arquivo ignorado pelo Git.
-5. Crie uma sessão de ensaio, dois grupos e alguns códigos. Envie duas fotos, aprove, vote e revele os resultados antes de usar com a turma.
+5. Crie uma sessão de ensaio, dois grupos e alguns códigos. Envie fotos, aprove-as no painel e confira a mostra.
 6. Depois de escolher a URL pública da atividade, copie o link da sessão para as opções da apresentação. O slide da mostra gera o QR code.
 
 O pacote da apresentação contém somente o build estático. A aplicação da atividade é uma entrega separada, com Node e armazenamento persistente. Consulte `README.md`, `atividade/README.md` e `VERIFICACAO.md` para os comandos e limites testados.

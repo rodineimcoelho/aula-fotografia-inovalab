@@ -351,7 +351,7 @@ A agulha do fotômetro interpola a posição em .16s `ease-out`. O movimento con
 
 ### Estados de atividade e quiz
 
-Mensagens de sessão e grupo expressam estado real do fluxo. Upload, revisão, avaliação e encerramento usam texto próximo à ação relevante. O quiz usa as seis perguntas em todos os modos, sem versão rápida. No quiz guiado, cada pergunta e sua resposta são etapas separadas: as setas revelam a alternativa correta e sua explicação, sem atribuir pontuação ou alterar respostas salvas. No modo manual, o resultado reflete respostas reais. A alternativa correta usa contorno coral e fundo local, com explicação textual. Não transformar o contexto operacional de fase em um padrão de sobretítulo decorativo.
+Mensagens de sessão e grupo expressam estado real do fluxo. Envio, revisão, abertura da mostra e encerramento usam texto próximo à ação relevante. O quiz usa as seis perguntas em todos os modos, sem versão rápida. No quiz guiado, cada pergunta e sua resposta são etapas separadas: as setas revelam a alternativa correta e sua explicação, sem atribuir pontuação ou alterar respostas salvas. No modo manual, o resultado reflete respostas reais. A alternativa correta usa contorno coral e fundo local, com explicação textual. Não transformar o contexto operacional de fase em um padrão de sobretítulo decorativo.
 
 ### Identificação de aplicativos
 
@@ -373,7 +373,7 @@ O fundo de leitura carvão com transparência local (`#151618eb`) pode ser ativa
 
 As setas preparam o grupo e iniciam as fases de fotografia, edição e envio; os controles de cronômetro ficam nos ajustes manuais. Um relógio ativo continua ao visitar outros slides. Voltar explicitamente a uma fase da prática reinicia o tempo daquela fase, tornando a transição previsível. O encerramento usa somente a pergunta de reflexão em texto grande, sem fotografia nem botão de retorno; o rodapé continua disponível.
 
-Sem servidor da atividade, a mostra aceita arquivos JPEG/PNG/WebP escolhidos no computador do telão. A fotografia e o título dominam o centro; navegação fica nas laterais da imagem. Título editável e contagem manual de votos populares/notas de jurados ficam em disclosure secundário. Os destaques aparecem separados. Objetos de imagem e notas permanecem apenas na aba aberta, sem simular envio ou votação remota.
+Sem servidor da atividade, a mostra aceita arquivos JPEG/PNG/WebP escolhidos no computador do telão. A fotografia e o título dominam o centro; navegação fica nas laterais da imagem. O título é editável em um disclosure secundário. A navegação mostra uma fotografia por vez, com animação de entrada e título visível. Os arquivos permanecem apenas na aba aberta, sem simular envio remoto.
 
 ### Modo professor independente
 

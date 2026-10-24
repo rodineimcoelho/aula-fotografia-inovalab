@@ -19,13 +19,13 @@ A aplicação da atividade foi construída com Node.js 22.16+, SQLite e arquivos
 - Alunos de aproximadamente 12 a 17 anos, descritos pelo professor como crianças e jovens do ensino médio.
 - Professor que conduz uma aula presencial e opera uma apresentação interativa em telão.
 - Alunos organizados em grupos para fotografar, editar e enviar uma imagem com título.
-- Alunos que avaliam as fotografias de outros grupos. A participação de jurados é uma possibilidade ainda em definição.
+- Alunos que enviam uma foto e acompanham a mostra da turma.
 
 ## Product Purpose
 
 Preparar uma aula de “Fotografia e Produção de Imagens” de duas horas, combinando entre 30 e 60 minutos de teoria com uma atividade prática no tempo restante.
 
-A apresentação deve permitir explicar conceitos por meio de demonstrações e interações. A atividade proposta leva os grupos a produzir uma fotografia editada e intitulada, receber avaliações e participar de uma mostra das melhores imagens.
+A apresentação deve permitir explicar conceitos por meio de demonstrações e interações. A atividade proposta leva os grupos a produzir uma fotografia editada e intitulada, enviar uma imagem titulada, revisada pelo professor e exibida em uma mostra da turma.
 
 ## Positioning
 
@@ -44,7 +44,7 @@ Uma aula que conecta o funcionamento da câmera às decisões de captura, ediç�
 - A quantidade de alunos e grupos é desconhecida; o fluxo da atividade deve aceitar uma quantidade variável de participantes.
 - Segundo a previsão do professor, a maioria dos alunos terá celular e haverá internet disponível. Não há confirmação de um aparelho por aluno ou por grupo.
 - Referência física disponível em `layout-telao.jpeg`, inspecionada durante a inicialização.
-- A atividade será tratada como uma aplicação separada da apresentação, com hospedagem própria para receber fotografias, títulos e votos. O provedor e o serviço responsável por persistir esses dados ainda não foram escolhidos.
+- A atividade será tratada como uma aplicação separada da apresentação, com hospedagem própria para receber fotografias e títulos. O provedor e o serviço responsável por persistir esses dados ainda não foram escolhidos.
 
 ## Capabilities and Constraints
 
@@ -68,13 +68,13 @@ Uma aula que conecta o funcionamento da câmera às decisões de captura, ediç�
 - Simulador dos efeitos do triângulo de exposição: desfoque por distância em três planos, seleção do plano de foco e comparação com brilho igualado. A prévia 3D da câmera também simula profundidade de campo.
 - Quiz interativo.
 - Envio de uma fotografia tirada e editada pelo grupo, acompanhada de um título.
-- Avaliação das imagens de outros grupos segundo critérios a definir.
-- Mostra das fotografias selecionadas a partir das avaliações.
-- Possibilidade de resultados separados para escolha popular e escolha dos jurados.
+- Exibição das fotografias aprovadas com seus títulos.
+- Mostra das fotografias aprovadas pelo professor, sem votação ou classificação.
 
-Há uma implementação local da apresentação e da aplicação da atividade. Ainda não houve publicação remota. Em 24 de outubro, o professor informou que não teve tempo de hospedar a aplicação da atividade. A apresentação ganhou uma mostra local como alternativa para importar fotos recebidas pelo canal combinado, editar títulos e registrar manualmente popular e jurados no computador do telão. O quiz é coletivo no navegador do professor. Na aplicação separada, códigos individuais identificam participantes e jurados; o grupo entrega uma fotografia e as avaliações são persistidas no servidor, com revisão do professor antes da galeria.
 
-Padrões implementados por delegação durante a noite: composição, uso da luz e intenção/criatividade recebem notas de 1 a 5 com o mesmo peso; escolha popular e jurados são calculados separadamente; autoavaliação do grupo é bloqueada; uma avaliação por pessoa e foto pode ser ajustada até o fechamento; placares só aparecem após o encerramento. Esses padrões estão listados para revisão em `PENDENCIAS-MANHA.md`.
+Há uma implementação local da apresentação e da aplicação da atividade. Ainda não houve publicação remota. O professor informou que não teve tempo de hospedar a aplicação da atividade. A apresentação inclui uma mostra local para importar fotos recebidas pelo canal combinado e editar títulos no computador do telão. Na aplicação separada, códigos individuais identificam participantes e o grupo envia uma fotografia, que passa pela revisão do professor antes de ser exibida com as demais.
+
+O fluxo da atividade é envio → revisão do professor → mostra das fotos aprovadas, sem votação, jurados, notas ou placar.
 
 ### Decisões em aberto
 
@@ -82,8 +82,6 @@ Padrões implementados por delegação durante a noite: composição, uso da luz
 - Quantidade de alunos e grupos, distribuição efetiva dos celulares e condições da conexão durante a aula.
 - Computador usado na apresentação e resolução de saída configurada para o telão.
 - Participação no quiz: coletiva, conduzida pelo professor, ou com respostas individuais em dispositivos.
-- Critérios de avaliação, escala de notas, regras de participação e desempates.
-- Confirmação dos jurados e formato da escolha popular: por aluno ou por grupo.
 - Tema da atividade e necessidade de entregar também a fotografia original ou uma arte derivada.
 - Identificação dos participantes, moderação e alcance de acesso à galeria.
 - Destino do repositório no GitHub.
@@ -114,4 +112,4 @@ Padrões implementados por delegação durante a noite: composição, uso da luz
 2. Preservar tempo para a prática dentro das duas horas totais.
 3. Tratar a segmentação do telão como uma condição real de uso da apresentação.
 4. Relacionar captura, edição e produção de imagens na mesma experiência de aprendizagem.
-5. Distinguir a avaliação popular da avaliação dos jurados caso ambas sejam adotadas.
+5. Exibir as fotografias aprovadas com seus títulos, sem classificação.

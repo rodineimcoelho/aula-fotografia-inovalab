@@ -21,9 +21,9 @@ export function createApplication({dataDir=process.env.DATA_DIR||path.join(root,
     CREATE TABLE IF NOT EXISTS groups(id TEXT PRIMARY KEY,session_id TEXT NOT NULL REFERENCES sessions(id),name TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS participants(id TEXT PRIMARY KEY,session_id TEXT NOT NULL REFERENCES sessions(id),label TEXT NOT NULL,role TEXT NOT NULL,access_hash TEXT UNIQUE NOT NULL,token_hash TEXT UNIQUE,group_id TEXT REFERENCES groups(id));
     CREATE TABLE IF NOT EXISTS submissions(id TEXT PRIMARY KEY,session_id TEXT NOT NULL REFERENCES sessions(id),group_id TEXT UNIQUE NOT NULL REFERENCES groups(id),title TEXT NOT NULL,filename TEXT NOT NULL,mime TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'pending',created INTEGER NOT NULL);
-    CREATE TABLE IF NOT EXISTS votes(participant_id TEXT NOT NULL REFERENCES participants(id),submission_id TEXT NOT NULL REFERENCES submissions(id),composition INTEGER NOT NULL CHECK(composition BETWEEN 1 AND 5),light INTEGER NOT NULL CHECK(light BETWEEN 1 AND 5),intent INTEGER NOT NULL CHECK(intent BETWEEN 1 AND 5),created INTEGER NOT NULL,PRIMARY KEY(participant_id,submission_id));
     CREATE INDEX IF NOT EXISTS participants_session ON participants(session_id);
     CREATE INDEX IF NOT EXISTS submissions_session ON submissions(session_id);`);
+  db.exec("UPDATE sessions SET phase='results' WHERE phase='vote'");
   const getSession=id=>db.prepare('SELECT * FROM sessions WHERE id=? OR code=?').get(id,id);
   function identity(req){
     const token=String(req.headers.authorization||'').replace(/^Bearer /,'');
@@ -40,20 +40,14 @@ export function createApplication({dataDir=process.env.DATA_DIR||path.join(root,
     try{return JSON.parse(Buffer.concat(parts).toString('utf8'));}catch{throw new HttpError(400,'Não foi possível ler os dados enviados.');}
   }
   function json(res,status,value){res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});res.end(JSON.stringify(value));}
-  function ranked(sessionId){
-    const records=db.prepare(`SELECT s.id,s.title,s.group_id,g.name as group_name,p.role,COUNT(v.participant_id) as evaluations,AVG((v.composition+v.light+v.intent)/3.0) as score FROM submissions s JOIN groups g ON g.id=s.group_id LEFT JOIN votes v ON v.submission_id=s.id LEFT JOIN participants p ON p.id=v.participant_id WHERE s.session_id=? AND s.status='approved' GROUP BY s.id,p.role`).all(sessionId);
-    const list=role=>records.filter(r=>r.role===role&&r.evaluations>0).sort((a,b)=>b.score-a.score||a.group_name.localeCompare(b.group_name));
-    return {popular:list('student'),jury:list('jury')};
-  }
   function state(sessionId,user){
     const session=getSession(sessionId);requireValue(session,404,'Sessão não encontrada.');
     requireValue(user.role==='admin'||user.session_id===session.id,403,'Seu código pertence a outra sessão.');
     const groups=db.prepare('SELECT id,name FROM groups WHERE session_id=? ORDER BY rowid').all(session.id);
     let photos=db.prepare(`SELECT s.id,s.title,s.group_id,s.status,g.name as group_name,s.created FROM submissions s JOIN groups g ON g.id=s.group_id WHERE s.session_id=? ORDER BY s.created`).all(session.id);
     if(user.role!=='admin')photos=photos.filter(p=>p.group_id===user.group_id||(session.phase!=='collect'&&p.status==='approved'));
-    const votes=user.role==='admin'?[]:db.prepare('SELECT submission_id,composition,light,intent FROM votes WHERE participant_id=?').all(user.id);
     const participants=user.role==='admin'?db.prepare('SELECT id,label,role,group_id,token_hash IS NOT NULL as joined FROM participants WHERE session_id=? ORDER BY rowid').all(session.id):undefined;
-    return {session,groups,photos,votes,participants,user,results:session.phase==='results'?ranked(session.id):null};
+    return {session,groups,photos,participants,user};
   }
   const attempts=new Map();
   function rateLimit(req,key,limit){const now=Date.now();if(attempts.size>2000)for(const [k,v]of attempts)if(v.until<now)attempts.delete(k);const k=`${req.socket.remoteAddress}:${key}`,entry=attempts.get(k)||{count:0,until:now+60000};if(now>entry.until){entry.count=0;entry.until=now+60000;}entry.count++;attempts.set(k,entry);requireValue(entry.count<=limit,429,'Muitas tentativas. Aguarde um minuto e tente novamente.');}
@@ -89,20 +83,20 @@ export function createApplication({dataDir=process.env.DATA_DIR||path.join(root,
       if(method==='POST'&&match){
         requireAdmin(req);const session=getSession(match[1]);requireValue(session,404,'Sessão não encontrada.');const input=await body(req);
         if(match[2]==='groups'){
-          requireValue(session.phase==='collect',409,'Os grupos são criados antes da votação.');const count=Number(input.count||1);requireValue(Number.isInteger(count)&&count>=1&&count<=50,400,'Crie entre 1 e 50 grupos por vez.');
+          requireValue(session.phase==='collect',409,'Os grupos são criados antes de encerrar os envios.');const count=Number(input.count||1);requireValue(Number.isInteger(count)&&count>=1&&count<=50,400,'Crie entre 1 e 50 grupos por vez.');
           const existing=db.prepare('SELECT COUNT(*) as n FROM groups WHERE session_id=?').get(session.id).n;
           for(let i=0;i<count;i++)db.prepare('INSERT INTO groups(id,session_id,name) VALUES(?,?,?)').run(randomUUID(),session.id,count===1&&text(input.name,60)?text(input.name,60):`Grupo ${existing+i+1}`);
           json(res,201,state(session.id,{role:'admin'}));return;
         }
         if(match[2]==='codes'){
-          const count=Number(input.count),role=input.role;requireValue(Number.isInteger(count)&&count>=1&&count<=300&&['student','jury'].includes(role),400,'Escolha o tipo e uma quantidade entre 1 e 300.');
+          const count=Number(input.count),role='student';requireValue(Number.isInteger(count)&&count>=1&&count<=300,400,'Escolha uma quantidade entre 1 e 300.');
           const existing=db.prepare('SELECT COUNT(*) as n FROM participants WHERE session_id=? AND role=?').get(session.id,role).n;
           const codes=[];const insert=db.prepare('INSERT INTO participants(id,session_id,label,role,access_hash) VALUES(?,?,?,?,?)');
-          db.exec('BEGIN');try{for(let i=0;i<count;i++){const code=`${role==='jury'?'J':'P'}-${randomBytes(5).toString('hex').toUpperCase()}`,label=`${role==='jury'?'Jurado':'Participante'} ${existing+i+1}`;insert.run(randomUUID(),session.id,label,role,hash(code));codes.push({label,code,role});}db.exec('COMMIT');}catch(error){db.exec('ROLLBACK');throw error;}
+          db.exec('BEGIN');try{for(let i=0;i<count;i++){const code=`P-${randomBytes(5).toString('hex').toUpperCase()}`,label=`Participante ${existing+i+1}`;insert.run(randomUUID(),session.id,label,role,hash(code));codes.push({label,code,role});}db.exec('COMMIT');}catch(error){db.exec('ROLLBACK');throw error;}
           json(res,201,{codes});return;
         }
-        const next=input.phase;requireValue((session.phase==='collect'&&next==='vote')||(session.phase==='vote'&&next==='results'),409,'Avance de entregas para votação e depois para resultados.');
-        if(next==='vote'){const approved=db.prepare("SELECT COUNT(*) as n FROM submissions WHERE session_id=? AND status='approved'").get(session.id).n;requireValue(approved>=2,409,'Aprove pelo menos duas fotos antes de abrir a votação.');}
+        const next=input.phase;requireValue(session.phase==='collect'&&next==='results',409,'Encerre os envios para liberar a mostra.');
+        const approved=db.prepare("SELECT COUNT(*) as n FROM submissions WHERE session_id=? AND status='approved'").get(session.id).n;requireValue(approved>=1,409,'Aprove pelo menos uma foto antes de abrir a mostra.');
         db.prepare('UPDATE sessions SET phase=? WHERE id=?').run(next,session.id);json(res,200,state(session.id,{role:'admin'}));return;
       }
       if(method==='POST'&&route==='/api/submissions'){
@@ -122,7 +116,7 @@ export function createApplication({dataDir=process.env.DATA_DIR||path.join(root,
       match=route.match(/^\/api\/admin\/photos\/([^/]+)$/);
       if(method==='POST'&&match){
         requireAdmin(req);const input=await body(req);requireValue(['approved','rejected','pending'].includes(input.status),400,'Escolha um estado de revisão válido.');
-        const photo=db.prepare('SELECT * FROM submissions WHERE id=?').get(match[1]);requireValue(photo,404,'Foto não encontrada.');requireValue(getSession(photo.session_id).phase==='collect',409,'Revise as fotos antes de abrir a votação.');
+        const photo=db.prepare('SELECT * FROM submissions WHERE id=?').get(match[1]);requireValue(photo,404,'Foto não encontrada.');requireValue(getSession(photo.session_id).phase==='collect',409,'Revise as fotos antes de abrir a mostra.');
         db.prepare('UPDATE submissions SET status=? WHERE id=?').run(input.status,photo.id);json(res,200,{ok:true});return;
       }
       match=route.match(/^\/api\/images\/([^/]+)$/);
@@ -130,12 +124,6 @@ export function createApplication({dataDir=process.env.DATA_DIR||path.join(root,
         const user=identity(req),photo=db.prepare('SELECT * FROM submissions WHERE id=?').get(match[1]);requireValue(photo,404,'Foto não encontrada.');const session=getSession(photo.session_id);
         requireValue(user.role==='admin'||(user.session_id===session.id&&(user.group_id===photo.group_id||(session.phase!=='collect'&&photo.status==='approved'))),403,'Esta foto ainda não está disponível na galeria.');
         const buffer=await readFile(path.join(uploadDir,photo.filename));res.writeHead(200,{'Content-Type':photo.mime,'Cache-Control':'private, no-store','Content-Length':buffer.length});res.end(buffer);return;
-      }
-      if(method==='POST'&&route==='/api/vote'){
-        const user=identity(req);requireValue(['student','jury'].includes(user.role),403,'Entre com um código de participante ou jurado.');const input=await body(req),photo=db.prepare('SELECT * FROM submissions WHERE id=?').get(text(input.photoId,50));
-        requireValue(photo&&photo.session_id===user.session_id&&photo.status==='approved',404,'Esta foto não está disponível para avaliação.');requireValue(getSession(user.session_id).phase==='vote',409,'A votação não está aberta.');requireValue(user.group_id!==photo.group_id,403,'Avalie as fotos de outros grupos.');
-        const scores=['composition','light','intent'].map(key=>input[key]);requireValue(scores.every(v=>Number.isInteger(v)&&v>=1&&v<=5),400,'Escolha uma nota de 1 a 5 em cada critério.');
-        db.prepare(`INSERT INTO votes(participant_id,submission_id,composition,light,intent,created) VALUES(?,?,?,?,?,?) ON CONFLICT(participant_id,submission_id) DO UPDATE SET composition=excluded.composition,light=excluded.light,intent=excluded.intent,created=excluded.created`).run(user.id,photo.id,...scores,Date.now());json(res,200,{ok:true});return;
       }
       const files={'/':'index.html','/admin':'index.html','/app.js':'app.js','/style.css':'style.css','/image-loading.svg':'image-loading.svg'};
       if(method==='GET'&&route==='/font.woff2'){const font=await readFile(path.join(root,'public/font.woff2'));res.writeHead(200,{'Content-Type':'font/woff2','Cache-Control':'public, max-age=86400'});res.end(font);return;}

@@ -64,7 +64,7 @@ export function slideContent(kind: SlideKind, exposure: Exposure): string {
     case 'quiz': return `<div id="quiz-content" class="quiz-content grow"></div>`;
     case 'mission': return `<ol class="step-list grow"><li><strong>Fotografe com intenção.</strong><span>Procure luz e experimente mais de um enquadramento.</span></li><li><strong>Escolha e edite uma foto.</strong><span>Faça ajustes que ajudem a sua ideia.</span></li><li><strong>Dê um título e compartilhe.</strong><span>Uma imagem final por grupo, exportada em JPEG, PNG ou WebP.</span></li></ol><div class="rubric"><span>Composição</span><span>Uso da luz</span><span>Intenção / criatividade</span></div>`;
     case 'practice': return `<div class="practice-timer grow"><output id="timer-display" aria-label="Tempo restante">25:00</output><p id="timer-phase">Fotografar</p><div class="button-row timer-presets"><button data-timer="25" class="selected">25 min · Foto</button><button data-timer="20">20 min · Edição</button><button data-timer="5">5 min · Envio</button></div><div class="button-row"><button id="timer-toggle" class="primary">Iniciar</button><button id="timer-reset">Reiniciar</button></div><p id="timer-status" class="fine-print" aria-live="polite"></p></div>`;
-    case 'gallery': return `<div id="activity-access" class="activity-access grow"></div><p class="takeaway">Escolha popular e escolha dos jurados contam histórias diferentes.</p>`;
+    case 'gallery': return `<div id="activity-access" class="activity-access grow"></div><p class="takeaway">Uma mostra das imagens criadas pela turma.</p>`;
     case 'end': return `<div class="closing-message grow"><p>Que escolha você vai fazer diferente na próxima foto?</p></div>`;
     default: return `<p>${escapeHtml(kind)}</p>`;
   }

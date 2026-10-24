@@ -20,7 +20,7 @@ A aula está marcada para sábado, 24 de outubro de 2026. O professor confirmou 
 | 50–75 min | Captura | Fotografar de duas posições e selecionar uma imagem. |
 | 75–95 min | Edição | Ajustar a foto e escrever um título. |
 | 95–100 min | Entrega | Enviar foto e título. |
-| 100–119 min | Avaliação e mostra | Votos populares e de jurados separados; comentários conforme a quantidade de grupos. |
+| 100–119 min | Mostra | Exibição das fotografias aprovadas com seus títulos; comentários sobre escolhas de luz, composição e edição. |
 | 119–120 min | Encerramento | Retomar uma escolha que a turma fará diferente. |
 
 São 45 minutos de teoria/demonstrações e 75 de organização, prática e mostra. Os 20 slides somam 120 minutos. Os conceitos de oito slides foram incorporados às demonstrações; suas notas anteriores estão em `CONTEUDO-DE-APOIO.md`. Ajuste os tempos ao ritmo da turma.
@@ -90,32 +90,27 @@ Desafios extras opcionais:
 - Criar uma imagem com espaço reservado para o título de um cartaz.
 - Comparar original e edição e explicar uma mudança intencional.
 
-## Entrega, votação e mostra
+## Entrega e mostra
 
-Fluxo sugerido: entrar na sessão por QR code → identificar o grupo → enviar foto e título → professor liberar a galeria → abrir votação → encerrar votação → revelar destaques.
+Fluxo sugerido: entrar na sessão por QR code → identificar o grupo → enviar foto e título → professor revisar → encerrar os envios → exibir as fotografias aprovadas.
 
-Recomendações a confirmar:
-
-- Usar nomes de equipe na galeria e liberar imagens para exibição após revisão do professor.
-- Impedir a avaliação do próprio grupo e limitar cada participante habilitado a uma avaliação por foto; a identidade de votação deve ser verificada pelo serviço, e não apenas pelo navegador.
-- Julgar intenção/criatividade, composição e uso da luz em escala curta, com descrições compreensíveis.
-- Na escolha popular, permitir voto em uma favorita entre os outros grupos; os jurados podem usar a rubrica completa.
-- Manter “Escolha popular” e “Escolha dos jurados” como resultados separados, sem somar notas com pesos arbitrários.
-- Ocultar placares parciais e definir desempates antes da atividade.
-- Exibir todas as entregas aprovadas na mostra e destacar vencedores ou categorias, conforme o professor decidir.
+- Usar nomes de equipe na galeria e exibir imagens após revisão do professor.
+- Uma fotografia final por grupo, acompanhada de título; permitir substituição enquanto os envios estiverem abertos.
+- Exibir as fotos aprovadas sem votação, pontuação, jurados ou classificação.
+- Comentar decisões concretas de luz, composição, edição e intenção, conforme o tempo disponível.
 
 ## Possível implementação
 
 A arquitetura adotará duas entregas independentes:
 
 - **Apresentação:** aplicação estática no GitHub Pages, com navegação de slides e demonstrações executadas no navegador. O Pages hospeda HTML, CSS e JavaScript: [visão geral do GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages).
-- **Atividade:** aplicação com hospedagem separada, armazenamento das fotos e persistência das avaliações. O provedor ainda será escolhido. Um link ou QR code na apresentação poderá conduzir os alunos à atividade.
+- **Atividade:** aplicação com hospedagem separada e armazenamento das fotos e títulos. O provedor ainda será escolhido. Um link ou QR code na apresentação poderá conduzir os alunos à atividade.
 
 As duas entregas devem poder ser publicadas e testadas independentemente. A apresentação não deve depender do serviço da atividade para explicar o conteúdo ou executar os simuladores.
 
 Recomendação técnica inicial, ainda não escolhida pelo professor: Vite + TypeScript para a aplicação e Three.js apenas nas demonstrações 3D. Há um fluxo documentado de publicação do Vite no GitHub Pages, incluindo configuração de subpasta do repositório: [guia do Vite](https://vite.dev/guide/static-deploy.html).
 
-Um serviço como Supabase pode receber as imagens e persistir avaliações. As regras de acesso e unicidade precisam ser implementadas no serviço; não basta esconder botões. Supabase documenta uploads pelo navegador e políticas de armazenamento: [Storage Quickstart](https://supabase.com/docs/guides/storage/quickstart), [controle de acesso](https://supabase.com/docs/guides/storage/security/access-control). A escolha do fornecedor, das credenciais e do modelo de participação continua em aberto.
+Um serviço como Supabase pode receber as imagens e persistir os envios. As regras de acesso precisam ser implementadas no serviço; não basta esconder botões. Supabase documenta uploads pelo navegador e políticas de armazenamento: [Storage Quickstart](https://supabase.com/docs/guides/storage/quickstart), [controle de acesso](https://supabase.com/docs/guides/storage/security/access-control). A escolha do fornecedor, das credenciais e do modelo de participação continua em aberto.
 
 Para a aula, sugerimos preparar uma cópia local da apresentação com todos os recursos e uma alternativa de entrega das fotos caso a conexão falhe. Isso ainda precisa ser implementado e ensaiado no computador real.
 

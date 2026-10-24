@@ -23,7 +23,7 @@ const topics:Partial<Record<SlideKind,string[]>>={
  quiz:['Movimento, abertura e fotômetro','RAW, ponto de vista e espaço para texto','Prever → revelar → explicar'],
  mission:['Um grupo, uma imagem e um título','Duas posições físicas e uma escolha de composição','Luz, intenção e consentimento'],
  practice:['25 min: captura','20 min: edição','5 min: envio'],
- gallery:['Composição, luz e intenção','Escolha popular e escolha dos jurados','Comentários sobre decisões concretas'],
+ gallery:['Exibir as fotos com seus títulos','Observar escolhas de luz e composição','Comentários sobre decisões concretas'],
  end:['Uma escolha para a próxima foto','Continuar experimentando'],
 };
 

@@ -12,7 +12,7 @@ O **modo professor** fica em `?professor=1` (prévia local: `http://127.0.0.1:51
 
 O roteiro atual tem 82 etapas: inclui as seis questões do quiz, Exemplo → Montagem 3D → Pela câmera nos seis casos de iluminação e seis modos representativos de mesclagem, um por família de efeito. Os 16 modos de [Compositing and Blending Level 1](https://www.w3.org/TR/compositing-1/#blending) continuam no seletor para exploração livre. A comparação mantém as duas fotos e opacidade de 65%, antes de adicionar o título. As explicações foram conferidas também com a [documentação da Adobe](https://helpx.adobe.com/photoshop/desktop/repair-retouch/adjust-light-tone/blending-mode-descriptions.html). Os textos grandes das torres ficam centralizados. O tempo planejado da aula permanece em 120 minutos.
 
-A aplicação separada de envio, revisão e votação está em [atividade/README.md](atividade/README.md). As decisões para revisão de manhã estão em [PENDENCIAS-MANHA.md](PENDENCIAS-MANHA.md).
+A aplicação separada de envio, revisão e mostra está em [atividade/README.md](atividade/README.md). As decisões para revisão de manhã estão em [PENDENCIAS-MANHA.md](PENDENCIAS-MANHA.md).
 
 ## Desenvolvimento
 
@@ -57,9 +57,11 @@ Referência: [publicação estática com Vite](https://vite.dev/guide/static-dep
 
 ## Aplicação da atividade
 
-O envio de fotos e a votação pertencem a uma aplicação separada. A apresentação não deve depender desse serviço para executar o conteúdo didático. A hospedagem, as regras de participação e a conexão entre as duas entregas ainda serão definidas.
+O envio de fotos pertence a uma aplicação separada. A apresentação não depende desse serviço para executar o conteúdo didático. A hospedagem e a conexão entre as duas entregas ainda serão definidas.
 
-**Sem hospedagem da atividade:** no slide da mostra, receba as fotos pelo canal que você combinou com os grupos e baixe os arquivos JPEG/PNG/WebP no computador do telão. Clique em **Selecionar fotos**, ajuste os títulos, passe pelas imagens com as setas e registre manualmente votos populares e notas dos jurados. **Ver destaques** mostra os resultados em separado. As fotos e a contagem ficam somente na aba aberta; a mostra local não recebe arquivos nem votos dos celulares.
+**Sem hospedagem da atividade:** no slide da mostra, receba as fotos pelo canal combinado e baixe os arquivos JPEG/PNG/WebP no computador do telão. Clique em **Selecionar fotos**, ajuste os títulos se necessário e passe pelas imagens com as setas. As fotos ficam somente na aba aberta; a mostra local não recebe arquivos dos celulares.
+
+Na aplicação hospedada, após a revisão e o encerramento dos envios, **Visualizar fotos** abre uma mostra em tela cheia: uma fotografia por vez, título visível abaixo, transição animada, navegação pelas setas e fechamento por Esc. Não há votação, notas ou jurados.
 
 Para iniciar a aplicação local, execute `npm --prefix atividade start` em outro terminal. O painel fica em `http://127.0.0.1:3001/admin`; a página de participantes fica em `http://127.0.0.1:3001`. A chave temporária do professor aparece no terminal, a menos que `ADMIN_KEY` já esteja definida. A aplicação usa Node e SQLite e não é incluída no build estático de `dist/`.
 
@@ -90,11 +92,11 @@ npm run build
 npm run test:static
 ```
 
-Os testes de navegador usam o Chrome instalado, com perfil de teste isolado. Verificam o layout em 1440 × 900, 3840 × 1440 e 390 × 844, controles, câmera, simulador, quiz e o fluxo de entrega/revisão/votação. A aplicação da atividade usa banco temporário nesses testes; dados reais não são apagados.
+Os testes de navegador usam o Chrome instalado, com perfil de teste isolado. Verificam o layout em 1440 × 900, 3840 × 1440 e 390 × 844, controles, câmera, simulador, quiz e o fluxo de envio/revisão/mostra. A aplicação da atividade usa banco temporário nesses testes; dados reais não são apagados.
 
 `test:static` serve somente os arquivos já gerados em `dist/`, montados na subpasta `/aula-fotografia-inovalab/`, para conferir navegação, fotos, fonte, roteiro e importação da câmera sem qualquer requisição a CDN ou serviço externo.
 
-A sequência soma 120 minutos: 45 de teoria/demonstrações, 5 de organização, 25 de captura, 20 de edição, 5 de envio, 19 de avaliação/mostra e 1 de encerramento.
+A sequência soma 120 minutos: 45 de teoria/demonstrações, 5 de organização, 25 de captura, 20 de edição, 5 de envio, 19 de mostra e comentários e 1 de encerramento.
 
 ## Recursos fotográficos
 
