@@ -15,10 +15,13 @@ import type { FocusPlane } from './depth-of-field.ts';
 
 const app = document.querySelector<HTMLElement>('#app')!;
 const teacherMode = new URLSearchParams(location.search).has('professor');
+const mobileDevice = matchMedia('(pointer: coarse)').matches || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 function read<T>(key: string, fallback: T): T { try { return JSON.parse(localStorage.getItem(key) ?? 'null') ?? fallback; } catch { return fallback; } }
 function save(key: string, value: unknown) { try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* The lesson remains usable without browser storage. */ } }
-const settings = read('foto-settings', { view: innerWidth <= 700 ? 'study' : 'screen', guides: false, activity: '', site: '', guided: true });
-settings.guided ??= true;
+const settings = read('foto-settings', { view: mobileDevice || innerWidth <= 700 ? 'study' : 'screen', guides: false, activity: '', site: '', guided: !mobileDevice, guidedPreferenceSet: false });
+if(mobileDevice)settings.view='study';
+settings.guided ??= !mobileDevice;
+if(mobileDevice&&!settings.guidedPreferenceSet)settings.guided=false;
 settings.site ??= '';
 const resolveSlideId = (id: string) => slideRedirects[id] ?? id;
 const fromHash = slides.findIndex(slide => slide.id === resolveSlideId(location.hash.slice(1)));
@@ -90,7 +93,7 @@ function render() {
   cleanup?.(); cleanup = undefined; mountVersion++;
   const persistentEdgeHosts=[...app.querySelectorAll<HTMLElement>('.edge-camera-host')];
   const slide = slides[index];
-  app.innerHTML = `<div class="stage ${settings.view === 'study' ? 'study' : ''} ${settings.guides ? 'guides' : ''}">
+  app.innerHTML = `<div class="stage ${settings.view === 'study' ? 'study' : ''} ${mobileDevice ? 'mobile-device' : ''} ${settings.guides ? 'guides' : ''}">
     <aside class="tower edge-tower edge-tower-left" aria-hidden="true">${edgeScene('left')}</aside><aside id="tower-controls" class="tower" aria-label="Controles da demonstração" aria-hidden="true"></aside>
     <main class="center ${slide.kind === 'cover' ? 'cover-mode' : ''}">
     <article class="slide" aria-labelledby="slide-title"><h1 id="slide-title" ${slide.kind === 'photo' ? 'hidden' : slide.kind==='quiz'?'class="sr-only"':''}>${slide.kind === 'cover' ? '<span>Fotografia</span> <span>e Produção</span> <span>de Imagens</span>' : slide.kind === 'aperture' ? 'Mais abertura.<br>Mais luz.' : escapeHtml(slide.title)}</h1><div class="slide-body">${slideContent(slide.kind, exposure)}</div></article>
@@ -103,7 +106,7 @@ function render() {
   app.querySelectorAll<HTMLElement>('[data-go]').forEach(button => button.addEventListener('click',()=>go(button.dataset.go!)));
   mountSlide(slide);
   const disposeSlide=cleanup as (()=>void)|undefined;
-  const disposeLayout=mountPresentationLayout(app,slide.kind,settings.view);
+  const disposeLayout=mountPresentationLayout(app,slide.kind,mobileDevice?'study':settings.view);
   const manual=select<HTMLDetailsElement>('manual-controls');if(manual)manual.open=true;
   if(settings.guided){
     for(const id of ['camera-options','focus-options','lighting-adjust','poster-options']){const details=select<HTMLDetailsElement>(id);if(details)details.open=true;}
@@ -349,7 +352,7 @@ function openSheet(type: string) {
       return `${heading}<button data-index="${i}" ${i===index?'aria-current="step"':''}><span>${String(i+1).padStart(2,'0')} · ${escapeHtml(slide.title)}</span><span>${slide.minutes}</span></button>`;
     }).join('')+'</div>';
   } else if(type==='notes') content=`<h3>${escapeHtml(slides[index].title)}</h3><p class="notes-text">${escapeHtml(slides[index].notes)}</p><p class="fine-print">Tempo sugerido: ${slides[index].minutes}. Estas notas aparecem nesta janela quando abertas; feche antes de voltar à projeção.</p><button id="notes-all">Ver roteiro completo</button>`;
-  else content=`<label>Modo de visualização<select id="view-mode"><option value="screen" ${settings.view==='screen'?'selected':''}>Telão · 1–1–4–1–1</option><option value="study" ${settings.view==='study'?'selected':''}>Estudo · área central ampliada</option></select></label><label>Navegação<select id="presentation-mode"><option value="guided" ${settings.guided?'selected':''}>Roteiro pelas setas</option><option value="manual" ${!settings.guided?'selected':''}>Somente trocar slides</option></select></label><label class="check-label"><input id="panel-guides" type="checkbox" ${settings.guides?'checked':''}> Mostrar divisões do telão para conferir o alinhamento</label><label>Endereço para acompanhar no celular<input id="site-url" type="url" value="${escapeHtml(settings.site)}" placeholder="Vazio: usa o endereço desta apresentação" spellcheck="false"></label><label>Endereço da aplicação da atividade<input id="activity-url" type="url" value="${escapeHtml(settings.activity)}" placeholder="https://seu-endereco-da-atividade" spellcheck="false"></label><button id="save-settings" class="primary align-start">Salvar opções</button><p id="settings-status" class="status-message" role="status"></p><div class="settings-actions"><button id="fullscreen">${icon('full')} Tela cheia</button><button id="open-notes">${icon('note')} Notas do professor</button><a href="./roteiro.html" target="_blank" rel="noopener noreferrer">Roteiro completo</a></div><h3>Atalhos</h3><dl class="shortcut-list"><dt>← / → · Page Up / Down</dt><dd>Etapa anterior / próxima; depois, outro slide</dd><dt>Espaço</dt><dd>Próxima etapa</dd><dt>Shift + ← / →</dt><dd>Pular direto para outro slide</dd><dt>I</dt><dd>Índice</dd><dt>N</dt><dd>Notas do professor</dd><dt>F</dt><dd>Tela cheia</dd><dt>Esc</dt><dd>Fechar painel</dd></dl><p class="fine-print">A apresentação e os simuladores são estáticos. A aplicação de envio e votação funciona em hospedagem separada.</p>`;
+  else content=`<label>Modo de visualização<select id="view-mode">${mobileDevice?'':`<option value="screen" ${settings.view==='screen'?'selected':''}>Telão · 1–1–4–1–1</option>`}<option value="study" ${settings.view==='study'?'selected':''}>Estudo · área central ampliada</option></select></label><label>Navegação<select id="presentation-mode"><option value="guided" ${settings.guided?'selected':''}>Roteiro pelas setas</option><option value="manual" ${!settings.guided?'selected':''}>Somente trocar slides</option></select></label><label class="check-label"><input id="panel-guides" type="checkbox" ${settings.guides?'checked':''}> Mostrar divisões do telão para conferir o alinhamento</label><label>Endereço para acompanhar no celular<input id="site-url" type="url" value="${escapeHtml(settings.site)}" placeholder="Vazio: usa o endereço desta apresentação" spellcheck="false"></label><label>Endereço da aplicação da atividade<input id="activity-url" type="url" value="${escapeHtml(settings.activity)}" placeholder="https://seu-endereco-da-atividade" spellcheck="false"></label><button id="save-settings" class="primary align-start">Salvar opções</button><p id="settings-status" class="status-message" role="status"></p><div class="settings-actions"><button id="fullscreen">${icon('full')} Tela cheia</button><button id="open-notes">${icon('note')} Notas do professor</button><a href="./roteiro.html" target="_blank" rel="noopener noreferrer">Roteiro completo</a></div><h3>Atalhos</h3><dl class="shortcut-list"><dt>← / → · Page Up / Down</dt><dd>Etapa anterior / próxima; depois, outro slide</dd><dt>Espaço</dt><dd>Próxima etapa</dd><dt>Shift + ← / →</dt><dd>Pular direto para outro slide</dd><dt>I</dt><dd>Índice</dd><dt>N</dt><dd>Notas do professor</dd><dt>F</dt><dd>Tela cheia</dd><dt>Esc</dt><dd>Fechar painel</dd></dl><p class="fine-print">A apresentação e os simuladores são estáticos. A aplicação de envio e votação funciona em hospedagem separada.</p>`;
   sheet.innerHTML=`<div class="sheet-header"><h2>${title}</h2><button id="close-sheet" class="close-sheet" aria-label="Fechar painel">${icon('close')}</button></div>${content}`;
   bind('close-sheet','click',closeSheet);(select('close-sheet') as HTMLButtonElement).focus();
   sheet.querySelectorAll<HTMLElement>('[data-index]').forEach(button=>button.addEventListener('click',()=>go(Number(button.dataset.index))));
@@ -361,7 +364,7 @@ function openSheet(type: string) {
     const site=(select('site-url') as HTMLInputElement).value.trim();
     if(url&&!safeUrl(url)){select('settings-status')!.textContent='Digite um endereço completo começando com https:// ou http://.';return;}
     if(site&&!safeUrl(site)){select('settings-status')!.textContent='Digite um endereço para o QR Code começando com https:// ou http://.';return;}
-    settings.guided=(select('presentation-mode') as HTMLSelectElement).value==='guided';settings.view=(select('view-mode') as HTMLSelectElement).value;settings.guides=(select('panel-guides') as HTMLInputElement).checked;settings.activity=url?safeUrl(url)!:'';settings.site=site?safeUrl(site)!:'';if(settings.activity)localShowcase=false;save('foto-settings',settings);render();openSheet('settings');select('settings-status')!.textContent='Opções salvas neste navegador.';
+    settings.guided=(select('presentation-mode') as HTMLSelectElement).value==='guided';settings.guidedPreferenceSet=true;settings.view=mobileDevice?'study':(select('view-mode') as HTMLSelectElement).value;settings.guides=(select('panel-guides') as HTMLInputElement).checked;settings.activity=url?safeUrl(url)!:'';settings.site=site?safeUrl(site)!:'';if(settings.activity)localShowcase=false;save('foto-settings',settings);render();openSheet('settings');select('settings-status')!.textContent='Opções salvas neste navegador.';
   });
 }
 function closeSheet(){currentSheet='';select('sheet')!.hidden=true;(select('open-settings') as HTMLButtonElement)?.focus();}
