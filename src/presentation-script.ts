@@ -2,6 +2,7 @@ import type { SlideKind } from './lesson.ts';
 import { questions } from './lesson.ts';
 import { lightingExamples } from './examples.ts';
 import { blendModes } from './blend-modes.ts';
+export const guidedBlendIds=['normal','multiply','screen','overlay','difference','color'] as const;
 export type PresentationCue={text:string;left:string[];right:string[]};
 export type GuideFrame={cue:PresentationCue;camera?:{part?:string;assembled?:boolean;aperture?:number;shutter?:number;iso?:number;compare?:boolean;capture?:boolean};light?:{example:number;view?:string;size?:number;color?:string};lab?:{aperture?:number;shutter?:number;iso?:number;light?:number;focus?:string;compare?:boolean;paused?:boolean};example?:number;crop?:{x:number;y:number;zoom:number;grid:boolean};edit?:{light:number;contrast:number;color:number;split:number};poster?:{reference:boolean;overlay?:boolean;type?:boolean;blend?:string;opacity?:number;font?:string;position?:string};quiz?:{position:number;reveal?:boolean;complete?:boolean};practice?:{minutes:number;running:boolean}};
 const cue=(text:string,left:string[],right:string[]):PresentationCue=>({text,left,right});
@@ -64,7 +65,7 @@ export const presentationScripts:Partial<Record<SlideKind,GuideFrame[]>>={
  poster:[
   {cue:cue('Observe a referência pronta.',['Referência'],['Imagem','final']),poster:{reference:true}},
   {cue:cue('Comece o estudo com uma fotografia.',['Foto','base'],['Começar']),poster:{reference:false,overlay:false,type:false}},
-  ...blendModes.map((mode):GuideFrame=>({cue:cue(`${mode.name}: ${mode.effect}`,[mode.name],[mode.group]),poster:{reference:false,type:false,blend:mode.id,opacity:65}})),
+  ...guidedBlendIds.map((id):GuideFrame=>{const mode=blendModes.find(item=>item.id===id)!;return {cue:cue(`${mode.name}: ${mode.effect}`,[mode.name],[mode.group]),poster:{reference:false,type:false,blend:mode.id,opacity:65}};}),
   {cue:cue('O título cria uma nova hierarquia.',['Tipografia'],['Hierarquia']),poster:{reference:false}},
   {cue:cue('Compare uma fonte com serifa.',['Com','serifa'],['Outra','voz']),poster:{reference:false,font:'serif'}},
   {cue:cue('Inovalab: mesclagem Overlay, título embaixo e sem fundo de leitura.',['Inovalab'],['Arte','final']),poster:{reference:false,font:'serif',blend:'overlay',position:'bottom'}},

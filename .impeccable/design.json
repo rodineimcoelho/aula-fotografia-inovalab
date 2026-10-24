@@ -339,7 +339,7 @@
       "name": "Comparação tipográfica do estudo",
       "kind": "custom",
       "refersTo": "production-type-serif",
-      "description": "Figtree e Georgia em itálico são alternativas somente do título da arte, apresentadas após a comparação de 16 modos de mesclagem com as mesmas fotos e opacidade de 65%; controles permanecem visíveis.",
+      "description": "Figtree e Georgia em itálico são alternativas somente do título da arte, apresentadas após seis modos representativos no roteiro. Os 16 modos seguem disponíveis no seletor; fotos e opacidade de 65% permanecem constantes, com controles visíveis.",
       "html": "<div class=\"ds-production-type\"><strong>Olhe de novo.</strong><span>Estudo de composição · evento fictício</span></div><div class=\"ds-production-type ds-serif\"><strong>Olhe de novo.</strong><span>Estudo de composição · evento fictício</span></div>",
       "css": ".ds-production-type{max-width:88%;padding:.85cqw;background:#151618eb;color:var(--ink,#efefec);display:flex;flex-direction:column;gap:.3em;max-height:88%;overflow:hidden;font-family:Figtree,Arial,sans-serif}.ds-production-type strong{font-size:clamp(24px,3cqw,115px);line-height:1.05;font-weight:600;max-width:15ch;overflow-wrap:anywhere}.ds-production-type span{font-size:clamp(12px,1cqw,40px)}@media(max-width:700px){.ds-production-type{padding:12px}.ds-production-type strong{font-size:30px}.ds-production-type span{font-size:11px}}.ds-production-type.ds-serif strong{font-family:Georgia,'Times New Roman',serif;font-style:italic}"
     },

@@ -9,6 +9,7 @@ import { mountProduction } from './production.ts';
 import { mountLighting } from './lighting-controls.ts';
 import { mountPresentationLayout } from './presentation-layout.ts';
 import { mountScriptedPresenter } from './scripted-presenter.ts';
+import {mountLocalGallery} from './local-gallery.ts';
 import type { GuideFrame } from './presentation-script.ts';
 import type { FocusPlane } from './depth-of-field.ts';
 
@@ -16,8 +17,9 @@ const app = document.querySelector<HTMLElement>('#app')!;
 const teacherMode = new URLSearchParams(location.search).has('professor');
 function read<T>(key: string, fallback: T): T { try { return JSON.parse(localStorage.getItem(key) ?? 'null') ?? fallback; } catch { return fallback; } }
 function save(key: string, value: unknown) { try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* The lesson remains usable without browser storage. */ } }
-const settings = read('foto-settings', { view: innerWidth <= 700 ? 'study' : 'screen', guides: false, activity: '', guided: true });
+const settings = read('foto-settings', { view: innerWidth <= 700 ? 'study' : 'screen', guides: false, activity: '', site: '', guided: true });
 settings.guided ??= true;
+settings.site ??= '';
 const resolveSlideId = (id: string) => slideRedirects[id] ?? id;
 const fromHash = slides.findIndex(slide => slide.id === resolveSlideId(location.hash.slice(1)));
 const savedSlide = slides.findIndex(slide => slide.id === resolveSlideId(read('foto-slide-id', '')));
@@ -31,11 +33,40 @@ let currentSheet = '';
 let presenter: ReturnType<typeof mountScriptedPresenter> | undefined;
 let enterAtLastStep=false;
 let quizIndex = 0;
+let localShowcase=false;
 const storedAnswers = read<unknown>('foto-quiz', []);
 let quizAnswers: Array<number | null> = Array.isArray(storedAnswers) ? questions.map((q,i) => Number.isInteger(storedAnswers[i]) && storedAnswers[i] >= 0 && storedAnswers[i] < q.options.length ? storedAnswers[i] : null) : questions.map(() => null);
 const timer = { minutes: 25, seconds: 1500, end: 0, running: false, announced: false, started: false };
 const select = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T | null;
 const bind = (id: string, event: string, callback: EventListener) => select(id)?.addEventListener(event, callback);
+const edgeScene = (side: 'left' | 'right') => {
+  const photos = side === 'left'
+    ? ['aula-passada/longa-exposicao-parque.jpg', 'aula-passada/contraluz-palco.jpg']
+    : ['aula-passada/capa-guitarrista.jpg', 'quadra.jpg'];
+  return [
+    '<div class="edge-scene edge-scene-' + side + '">',
+    '<figure class="edge-polaroid edge-polaroid-top" aria-hidden="true"><img src="' + asset(photos[0]) + '" alt=""></figure>',
+    '<div class="camera-host edge-camera-host" aria-hidden="true"><p class="loading">Câmera</p></div>',
+    '<figure class="edge-polaroid edge-polaroid-bottom" aria-hidden="true"><img src="' + asset(photos[1]) + '" alt=""></figure>',
+    '</div>',
+  ].join('');
+};
+let edgeCameraLoading = false;
+let edgeCameraReady = false;
+let edgeCameraDemos: InstanceType<typeof import('./camera.ts').CameraDemo>[] = [];
+function mountEdgeCameras() {
+  if (edgeCameraLoading || edgeCameraReady) return;
+  edgeCameraLoading = true;
+  window.setTimeout(() => void import('./camera.ts').then(({ CameraDemo }) => {
+    const hosts = [...app.querySelectorAll<HTMLElement>('.edge-camera-host')];
+    if (hosts.length !== 2) { edgeCameraLoading = false; return; }
+    hosts.forEach(host=>host.replaceChildren());
+    edgeCameraDemos = hosts.map(host => new CameraDemo(host, () => {}, () => {}, { decorative: true, pixelRatio: .85, autoRotate: true }));
+    edgeCameraDemos[1].setExploded(1);
+    edgeCameraReady = true;
+    edgeCameraLoading = false;
+  }).catch(() => { edgeCameraLoading = false; }), 500);
+}
 
 function go(target: number | string,lastStep=false) {
   const next = typeof target === 'number' ? target : slides.findIndex(slide => slide.id === resolveSlideId(target));
@@ -57,13 +88,16 @@ function updateNavigation(step:number,total:number,busy:boolean){
 
 function render() {
   cleanup?.(); cleanup = undefined; mountVersion++;
+  const persistentEdgeHosts=[...app.querySelectorAll<HTMLElement>('.edge-camera-host')];
   const slide = slides[index];
   app.innerHTML = `<div class="stage ${settings.view === 'study' ? 'study' : ''} ${settings.guides ? 'guides' : ''}">
-    <aside class="tower" aria-hidden="true"></aside><aside id="tower-controls" class="tower" aria-label="Controles da demonstração" aria-hidden="true"></aside>
+    <aside class="tower edge-tower edge-tower-left" aria-hidden="true">${edgeScene('left')}</aside><aside id="tower-controls" class="tower" aria-label="Controles da demonstração" aria-hidden="true"></aside>
     <main class="center ${slide.kind === 'cover' ? 'cover-mode' : ''}">
     <article class="slide" aria-labelledby="slide-title"><h1 id="slide-title" ${slide.kind === 'photo' ? 'hidden' : slide.kind==='quiz'?'class="sr-only"':''}>${slide.kind === 'cover' ? '<span>Fotografia</span> <span>e Produção</span> <span>de Imagens</span>' : slide.kind === 'aperture' ? 'Mais abertura.<br>Mais luz.' : escapeHtml(slide.title)}</h1><div class="slide-body">${slideContent(slide.kind, exposure)}</div></article>
     <footer class="deck-nav"><button id="previous-slide" ${index === 0 ? 'disabled' : ''} aria-label="Slide anterior" title="Anterior (←)">${icon('left')}</button><span class="deck-progress" aria-label="Slide ${index+1} de ${slides.length}">${String(index+1).padStart(2,'0')} / ${slides.length}</span><nav class="deck-tools" aria-label="Ferramentas da apresentação"><button id="open-index" aria-label="Abrir índice" title="Índice (I)">${icon('grid')}</button><button id="open-settings" aria-label="Opções da apresentação" title="Opções">${icon('settings')}</button></nav><button id="next-slide" ${index === slides.length-1 ? 'disabled' : ''} aria-label="Próximo slide" title="Próximo (→)">${icon('right')}</button></footer>
-    <section id="sheet" class="sheet" hidden></section></main><aside id="tower-context" class="tower" aria-label="Informações da demonstração" aria-hidden="true"></aside><aside class="tower" aria-hidden="true"></aside></div>`;
+    <section id="sheet" class="sheet" hidden></section></main><aside id="tower-context" class="tower" aria-label="Informações da demonstração" aria-hidden="true"></aside><aside class="tower edge-tower edge-tower-right" aria-hidden="true">${edgeScene('right')}</aside></div>`;
+  app.querySelectorAll<HTMLElement>('.edge-camera-host').forEach((host,i)=>{if(persistentEdgeHosts[i])host.replaceWith(persistentEdgeHosts[i]);});
+  mountEdgeCameras();
   bind('previous-slide','click',()=>navigate(-1)); bind('next-slide','click',()=>navigate(1));
   bind('open-index','click',()=>openSheet('index')); bind('open-settings','click',()=>openSheet('settings'));
   app.querySelectorAll<HTMLElement>('[data-go]').forEach(button => button.addEventListener('click',()=>go(button.dataset.go!)));
@@ -80,6 +114,7 @@ function render() {
 }
 
 function mountSlide(slide: Slide) {
+  if(slide.kind==='cover')renderCoverAccess();
   if (slide.kind === 'aperture') {
     const update = () => {
       const aperture = apertures[apertureIndex];
@@ -289,9 +324,19 @@ setInterval(updateTimer,250);
 
 function renderActivity() {
   const host=select('activity-access')!,url=safeUrl(settings.activity);
-  if(!url){host.innerHTML=`<p>Abra a aplicação da atividade para entregar as fotos, avaliar e revelar os destaques.</p><button id="configure-activity" class="primary">Vincular endereço da atividade</button><p class="fine-print">Sem conexão? O professor pode conduzir a mostra com as fotos recebidas pelos meios combinados.</p>`;bind('configure-activity','click',()=>openSheet('settings'));return;}
+  if(!url||localShowcase){cleanup=mountLocalGallery(host);return;}
   const qr=qrcode(0,'M');qr.addData(url);qr.make();
-  host.innerHTML=`<div class="qr-code" role="img" aria-label="QR code para entrar na atividade">${qr.createSvgTag({cellSize:4,margin:0,scalable:true})}</div><a class="activity-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(url)}</a><p>Acesse pelo celular. Use o código individual distribuído pelo professor.</p>`;
+  host.innerHTML=`<div class="qr-code" role="img" aria-label="QR code para entrar na atividade">${qr.createSvgTag({cellSize:4,margin:0,scalable:true})}</div><a class="activity-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(url)}</a><p>Acesse pelo celular. Use o código individual distribuído pelo professor.</p><button id="use-local-gallery">Usar mostra local</button>`;
+  bind('use-local-gallery','click',()=>{localShowcase=true;renderActivity();});
+}
+
+function renderCoverAccess(){
+  const host=select('cover-access');if(!host)return;
+  const url=safeUrl(settings.site)||new URL(import.meta.env.BASE_URL,location.href).href;
+  const qr=qrcode(0,'M');qr.addData(url);qr.make();
+  const address=new URL(url),local=['localhost','127.0.0.1','::1'].includes(address.hostname);
+  host.innerHTML=`<div class="cover-qr" role="img" aria-label="QR Code para acompanhar a apresentação no celular: ${escapeHtml(url)}">${qr.createSvgTag({cellSize:4,margin:0,scalable:true})}</div><div class="cover-follow"><strong>Acompanhe pelo celular</strong><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(address.host+address.pathname)}</a>${local?'<p>Prévia local: defina um endereço acessível no celular.</p><button id="configure-site" class="compact">Definir endereço</button>':''}</div>`;
+  bind('configure-site','click',()=>openSheet('settings'));
 }
 
 function openSheet(type: string) {
@@ -304,7 +349,7 @@ function openSheet(type: string) {
       return `${heading}<button data-index="${i}" ${i===index?'aria-current="step"':''}><span>${String(i+1).padStart(2,'0')} · ${escapeHtml(slide.title)}</span><span>${slide.minutes}</span></button>`;
     }).join('')+'</div>';
   } else if(type==='notes') content=`<h3>${escapeHtml(slides[index].title)}</h3><p class="notes-text">${escapeHtml(slides[index].notes)}</p><p class="fine-print">Tempo sugerido: ${slides[index].minutes}. Estas notas aparecem nesta janela quando abertas; feche antes de voltar à projeção.</p><button id="notes-all">Ver roteiro completo</button>`;
-  else content=`<label>Modo de visualização<select id="view-mode"><option value="screen" ${settings.view==='screen'?'selected':''}>Telão · 1–1–4–1–1</option><option value="study" ${settings.view==='study'?'selected':''}>Estudo · área central ampliada</option></select></label><label>Navegação<select id="presentation-mode"><option value="guided" ${settings.guided?'selected':''}>Roteiro pelas setas</option><option value="manual" ${!settings.guided?'selected':''}>Somente trocar slides</option></select></label><label class="check-label"><input id="panel-guides" type="checkbox" ${settings.guides?'checked':''}> Mostrar divisões do telão para conferir o alinhamento</label><label>Endereço da aplicação da atividade<input id="activity-url" type="url" value="${escapeHtml(settings.activity)}" placeholder="https://seu-endereco-da-atividade" spellcheck="false"></label><button id="save-settings" class="primary align-start">Salvar opções</button><p id="settings-status" class="status-message" role="status"></p><div class="settings-actions"><button id="fullscreen">${icon('full')} Tela cheia</button><button id="open-notes">${icon('note')} Notas do professor</button><a href="./roteiro.html" target="_blank" rel="noopener noreferrer">Roteiro completo</a></div><h3>Atalhos</h3><dl class="shortcut-list"><dt>← / → · Page Up / Down</dt><dd>Etapa anterior / próxima; depois, outro slide</dd><dt>Espaço</dt><dd>Próxima etapa</dd><dt>Shift + ← / →</dt><dd>Pular direto para outro slide</dd><dt>I</dt><dd>Índice</dd><dt>N</dt><dd>Notas do professor</dd><dt>F</dt><dd>Tela cheia</dd><dt>Esc</dt><dd>Fechar painel</dd></dl><p class="fine-print">A apresentação e os simuladores são estáticos. A aplicação de envio e votação funciona em hospedagem separada.</p>`;
+  else content=`<label>Modo de visualização<select id="view-mode"><option value="screen" ${settings.view==='screen'?'selected':''}>Telão · 1–1–4–1–1</option><option value="study" ${settings.view==='study'?'selected':''}>Estudo · área central ampliada</option></select></label><label>Navegação<select id="presentation-mode"><option value="guided" ${settings.guided?'selected':''}>Roteiro pelas setas</option><option value="manual" ${!settings.guided?'selected':''}>Somente trocar slides</option></select></label><label class="check-label"><input id="panel-guides" type="checkbox" ${settings.guides?'checked':''}> Mostrar divisões do telão para conferir o alinhamento</label><label>Endereço para acompanhar no celular<input id="site-url" type="url" value="${escapeHtml(settings.site)}" placeholder="Vazio: usa o endereço desta apresentação" spellcheck="false"></label><label>Endereço da aplicação da atividade<input id="activity-url" type="url" value="${escapeHtml(settings.activity)}" placeholder="https://seu-endereco-da-atividade" spellcheck="false"></label><button id="save-settings" class="primary align-start">Salvar opções</button><p id="settings-status" class="status-message" role="status"></p><div class="settings-actions"><button id="fullscreen">${icon('full')} Tela cheia</button><button id="open-notes">${icon('note')} Notas do professor</button><a href="./roteiro.html" target="_blank" rel="noopener noreferrer">Roteiro completo</a></div><h3>Atalhos</h3><dl class="shortcut-list"><dt>← / → · Page Up / Down</dt><dd>Etapa anterior / próxima; depois, outro slide</dd><dt>Espaço</dt><dd>Próxima etapa</dd><dt>Shift + ← / →</dt><dd>Pular direto para outro slide</dd><dt>I</dt><dd>Índice</dd><dt>N</dt><dd>Notas do professor</dd><dt>F</dt><dd>Tela cheia</dd><dt>Esc</dt><dd>Fechar painel</dd></dl><p class="fine-print">A apresentação e os simuladores são estáticos. A aplicação de envio e votação funciona em hospedagem separada.</p>`;
   sheet.innerHTML=`<div class="sheet-header"><h2>${title}</h2><button id="close-sheet" class="close-sheet" aria-label="Fechar painel">${icon('close')}</button></div>${content}`;
   bind('close-sheet','click',closeSheet);(select('close-sheet') as HTMLButtonElement).focus();
   sheet.querySelectorAll<HTMLElement>('[data-index]').forEach(button=>button.addEventListener('click',()=>go(Number(button.dataset.index))));
@@ -313,8 +358,10 @@ function openSheet(type: string) {
   bind('open-notes','click',()=>openSheet('notes'));bind('notes-all','click',()=>{window.open('./roteiro.html','_blank','noopener');});bind('fullscreen','click',()=>void fullscreen());
   bind('save-settings','click',()=>{
     const url=(select('activity-url') as HTMLInputElement).value.trim();
+    const site=(select('site-url') as HTMLInputElement).value.trim();
     if(url&&!safeUrl(url)){select('settings-status')!.textContent='Digite um endereço completo começando com https:// ou http://.';return;}
-    settings.guided=(select('presentation-mode') as HTMLSelectElement).value==='guided';settings.view=(select('view-mode') as HTMLSelectElement).value;settings.guides=(select('panel-guides') as HTMLInputElement).checked;settings.activity=url?safeUrl(url)!:'';save('foto-settings',settings);render();openSheet('settings');select('settings-status')!.textContent='Opções salvas neste navegador.';
+    if(site&&!safeUrl(site)){select('settings-status')!.textContent='Digite um endereço para o QR Code começando com https:// ou http://.';return;}
+    settings.guided=(select('presentation-mode') as HTMLSelectElement).value==='guided';settings.view=(select('view-mode') as HTMLSelectElement).value;settings.guides=(select('panel-guides') as HTMLInputElement).checked;settings.activity=url?safeUrl(url)!:'';settings.site=site?safeUrl(site)!:'';if(settings.activity)localShowcase=false;save('foto-settings',settings);render();openSheet('settings');select('settings-status')!.textContent='Opções salvas neste navegador.';
   });
 }
 function closeSheet(){currentSheet='';select('sheet')!.hidden=true;(select('open-settings') as HTMLButtonElement)?.focus();}

@@ -35,7 +35,7 @@ function lightingViewer(): string {
 export function slideContent(kind: SlideKind, exposure: Exposure): string {
   const court = asset('aula-passada/contraluz-palco.jpg'), portrait = asset('aula-passada/capa-guitarrista.jpg');
   switch (kind) {
-    case 'cover': return '';
+    case 'cover': return `<div class="cover-light" aria-hidden="true"><svg viewBox="0 0 1000 540" preserveAspectRatio="xMidYMid meet"><g fill="none" stroke-linecap="round"><path class="cover-optic" d="M180 102C295 205 295 335 180 438M210 88C335 197 335 343 210 452"/><path class="cover-ray cover-ray-one" d="M240 174 790 62"/><path class="cover-ray cover-ray-two" d="M252 270H790"/><path class="cover-ray cover-ray-three" d="M240 366 790 478"/><path class="cover-frame" d="M790 62V478H948V62Z"/></g><circle cx="790" cy="270" r="8" fill="#cf786f"/></svg></div><div id="cover-access" class="cover-access"></div>`;
     case 'lighting': return `<dl class="lighting-factors grow"><div><dt>Direção</dt><dd>De frente, de lado ou por trás: as sombras mudam o volume.</dd></div><div><dt>Dura ou suave</dt><dd>O tamanho aparente da fonte muda a borda das sombras.</dd></div><div><dt>Intensidade</dt><dd>Mais ou menos luz na cena pede outras escolhas de exposição.</dd></div><div><dt>Cor</dt><dd>A fonte e o balanço de branco mudam como as cores aparecem.</dd></div></dl><p class="takeaway">Mude a posição do assunto em relação à luz. Observe antes de ajustar.</p>`;
     case 'lighting-examples': return lightingViewer();
     case 'composition-examples': return exampleViewer(compositions, 'Composição');

@@ -6,6 +6,7 @@ import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
 import { captureFactors, defaultExposure, type Exposure } from './models.ts';
 
 export type CameraFrame = { phase: 'closed' | 'exposing' | 'complete'; progress: number; light: number; gain: number };
+export type CameraDemoOptions = { decorative?: boolean; pixelRatio?: number; autoRotate?: boolean };
 
 export const cameraParts = [
   { id: 'lens', name: 'Lente', text: 'Direciona a luz e forma a imagem. O foco muda quais planos aparecem nítidos.' },
@@ -46,14 +47,18 @@ export class CameraDemo {
   private overviewDirection = new THREE.Vector3(9,1.8,7).normalize();
   private disposed = false;
   private reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  private decorative = false;
+  private lastDecorativeFrame = 0;
+  private animationRunning = true;
   private fitting = false;
   private fitPosition = new THREE.Vector3();
   private fitTarget = new THREE.Vector3();
   private shifts: Record<string, number> = { lens: 4.1, aperture: 2.4, shutter: 1.1, sensor: 0 };
 
-  constructor(private host: HTMLElement, private onSelect: (id: string) => void, private onFrame: (frame: CameraFrame) => void = ()=>{}) {
+  constructor(private host: HTMLElement, private onSelect: (id: string) => void, private onFrame: (frame: CameraFrame) => void = ()=>{}, options: CameraDemoOptions = {}) {
+    this.decorative = options.decorative ?? false;
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'low-power' });
-    this.renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+    this.renderer.setPixelRatio(Math.min(devicePixelRatio, options.pixelRatio ?? 1.5));
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.setClearColor('#151618', 0);
     this.renderer.domElement.setAttribute('role', 'img');
@@ -64,6 +69,8 @@ export class CameraDemo {
     this.controls.target.set(0, 0, 1.4);
     this.controls.enablePan = false;
     this.controls.enableDamping = !this.reduced;
+    this.controls.autoRotate = options.autoRotate ?? false;
+    this.controls.autoRotateSpeed = .45;
     this.controls.minDistance = 7;
     this.controls.maxDistance = 17;
     this.controls.maxPolarAngle = Math.PI * .8;
@@ -134,7 +141,7 @@ export class CameraDemo {
       const material = node.material.clone(); node.material = material;
       this.surfaceMaterials.push({ material, part: id, color: material.color.clone(), emissive: material.emissive.clone(), intensity: material.emissiveIntensity });
     });
-    for (let i = 0; i < 64; i++) { const photon = new THREE.Mesh(new THREE.SphereGeometry(.028, 6, 6), new THREE.MeshBasicMaterial({ color: '#f3d7b5' })); this.photons.push(photon); this.scene.add(photon); }
+    if(!this.decorative)for (let i = 0; i < 64; i++) { const photon = new THREE.Mesh(new THREE.SphereGeometry(.028, 6, 6), new THREE.MeshBasicMaterial({ color: '#f3d7b5' })); this.photons.push(photon); this.scene.add(photon); }
     const raycaster = new THREE.Raycaster(); const pointer = new THREE.Vector2();
     this.renderer.domElement.addEventListener('click', (event) => {
       const rect = this.renderer.domElement.getBoundingClientRect();
@@ -147,7 +154,9 @@ export class CameraDemo {
     this.renderer.setAnimationLoop(() => this.frame());
   }
   private resize() {
-    const { width, height } = this.host.getBoundingClientRect(); if (!width || !height) return;
+    const { width, height } = this.host.getBoundingClientRect();
+    if (!width || !height) { if(this.decorative&&this.animationRunning){this.renderer.setAnimationLoop(null);this.animationRunning=false;} return; }
+    if(this.decorative&&!this.animationRunning){this.renderer.setAnimationLoop(()=>this.frame());this.animationRunning=true;}
     this.renderer.setSize(width, height, false); this.camera.aspect = width / height; this.camera.updateProjectionMatrix(); this.fitView(true);
     this.outlineMaterial.resolution.set(width,height); this.outlineMaterial.linewidth = Math.max(3,Math.min(6,width/240));
   }
@@ -252,6 +261,9 @@ export class CameraDemo {
   }
   private frame() {
     if (this.disposed) return;
+    const frameTime=performance.now();
+    if(this.decorative&&frameTime-this.lastDecorativeFrame<50)return;
+    if(this.decorative)this.lastDecorativeFrame=frameTime;
     const lerp = this.reduced ? 1 : .11;
     for (const [id, group] of this.parts) {
       group.position.z = THREE.MathUtils.lerp(group.position.z, this.targets.get(id)! + this.explode * this.shifts[id], lerp);
@@ -279,7 +291,7 @@ export class CameraDemo {
       (p.material as THREE.MeshBasicMaterial).color.set(passesAperture && exposing ? '#f3d7b5' : '#bb9d7d');
     });
     const now = performance.now();
-    if(now-this.lastSignalUpdate>90) {
+    if(!this.decorative&&now-this.lastSignalUpdate>90) {
       this.lastSignalUpdate=now;
       const data=this.sensorTexture.image.data as Uint8Array;
       let seed=127;

@@ -43,7 +43,12 @@ export function mountPresentationLayout(root: HTMLElement, kind: SlideKind, view
     }
     stage.classList.toggle('with-towers',hasTowers);cueText.textContent=cue.text;cueText.hidden=wide||!cue.text;
   };
-  const receive=(event:Event)=>{cue=(event as CustomEvent<PresentationCue>).detail;update();};
+  const receive=(event:Event)=>{
+    cue=(event as CustomEvent<PresentationCue>).detail;update();
+    if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+    const emphasis=[left.querySelector('.tower-cue'),right.querySelector('.tower-cue'),cueText.hidden?null:cueText];
+    for(const element of emphasis)element?.animate([{opacity:.55,color:'#cf786f'},{opacity:1,color:'#efefec'}],{duration:260,easing:'cubic-bezier(.16,1,.3,1)'});
+  };
   root.addEventListener('presentation-cue',receive);media.addEventListener('change',update);update();
   return ()=>{root.removeEventListener('presentation-cue',receive);media.removeEventListener('change',update);};
 }

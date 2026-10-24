@@ -2,7 +2,7 @@
 
 Apresentação interativa para uma aula presencial de duas horas, voltada a alunos de aproximadamente 12 a 17 anos.
 
-A versão local contém 20 slides, notas para o professor, capa somente tipográfica, verbete formal atribuído ao Priberam em um slide próprio, foto de referência no slide seguinte, câmera 3D desmontável com luz bloqueada pelas peças, ajustes de abertura/tempo/ISO e uma prévia de cena 3D, iluminação com exemplos, oito tipos de composição, laboratório de exposição, composição, comparação de edição, estudo de camadas, blend modes, opacidade e tipografia, quiz e cronômetro da prática. O tema é escuro, com o assunto principal no centro. Em Telão ≥1200px, as duas torres internas mostram somente palavras-chave e valores grandes; controles e imagens ficam no centro.
+A versão local contém 20 slides, notas para o professor, capa com título, traçado animado do caminho da luz e QR Code para acompanhar a apresentação, verbete formal atribuído ao Priberam em um slide próprio, foto de referência no slide seguinte, câmera 3D desmontável com luz bloqueada pelas peças, ajustes de abertura/tempo/ISO e uma prévia de cena 3D, iluminação com exemplos, oito tipos de composição, laboratório de exposição, composição, comparação de edição, estudo de camadas, blend modes, opacidade e tipografia, quiz, cronômetro da prática e mostra local. O tema é escuro, com o assunto principal no centro. Em Telão ≥1200px, as duas torres internas mostram somente palavras-chave e valores grandes; controles e imagens ficam no centro.
 
 O enxugamento de [PROPOSTA-ENXUGAMENTO.md](PROPOSTA-ENXUGAMENTO.md) foi aplicado: 20 slides e uma divisão de 45/75 minutos. Notas dos oito slides incorporados estão em [CONTEUDO-DE-APOIO.md](CONTEUDO-DE-APOIO.md). Links antigos levam à demonstração que recebeu o conceito.
 
@@ -10,7 +10,7 @@ O roteiro por setas é o padrão: →, Page Down ou espaço executa a próxima e
 
 O **modo professor** fica em `?professor=1` (prévia local: `http://127.0.0.1:5173/?professor=1#inicio`) e também tem um link em Opções. Abra esse modo no notebook e a apresentação normal no computador do telão. Cada um avança manualmente, de forma independente. O professor vê tópicos curtos do slide e da etapa atual, a lista de etapas e a próxima ação, sem falas prontas. É possível selecionar qualquer slide ou etapa diretamente. A URL guarda a posição ao atualizar a página. O modo funciona estaticamente e não altera a posição nem as respostas salvas da projeção.
 
-O roteiro atual tem 92 etapas: inclui as seis questões do quiz, Exemplo → Montagem 3D → Pela câmera nos seis casos de iluminação e os 16 modos de mesclagem de [Compositing and Blending Level 1](https://www.w3.org/TR/compositing-1/#blending). O seletor agrupa os modos por efeito; a comparação mantém as duas fotos e opacidade de 65%, antes de adicionar o título. As explicações foram conferidas também com a [documentação da Adobe](https://helpx.adobe.com/photoshop/desktop/repair-retouch/adjust-light-tone/blending-mode-descriptions.html). Os textos grandes das torres ficam centralizados. O tempo planejado da aula permanece em 120 minutos; use as comparações de mesclagem como uma passagem breve por famílias de efeitos.
+O roteiro atual tem 82 etapas: inclui as seis questões do quiz, Exemplo → Montagem 3D → Pela câmera nos seis casos de iluminação e seis modos representativos de mesclagem, um por família de efeito. Os 16 modos de [Compositing and Blending Level 1](https://www.w3.org/TR/compositing-1/#blending) continuam no seletor para exploração livre. A comparação mantém as duas fotos e opacidade de 65%, antes de adicionar o título. As explicações foram conferidas também com a [documentação da Adobe](https://helpx.adobe.com/photoshop/desktop/repair-retouch/adjust-light-tone/blending-mode-descriptions.html). Os textos grandes das torres ficam centralizados. O tempo planejado da aula permanece em 120 minutos.
 
 A aplicação separada de envio, revisão e votação está em [atividade/README.md](atividade/README.md). As decisões para revisão de manhã estão em [PENDENCIAS-MANHA.md](PENDENCIAS-MANHA.md).
 
@@ -32,7 +32,7 @@ npm run preview
 
 O resultado de produção fica em `dist/`. Vite compila TypeScript e empacota JavaScript, CSS e recursos; a hospedagem recebe apenas arquivos estáticos. Não é necessário executar Node.js no servidor de produção.
 
-A configuração usa `base: './'`, de modo que os recursos possam ser carregados também quando a apresentação é publicada em uma subpasta de repositório no GitHub Pages. A navegação da apresentação deve usar fragmentos de URL, sem depender de reescrita de rotas pelo servidor.
+A configuração usa `base: '/aula-fotografia-inovalab/'`, correspondente ao caminho previsto do GitHub Pages. Se o repositório for publicado com outro nome, ajuste `vite.config.ts` antes de gerar o build. A navegação da apresentação usa fragmentos de URL, sem depender de reescrita de rotas pelo servidor.
 
 Sirva a pasta `dist/` por HTTP durante ensaios locais; abrir o HTML diretamente por `file://` não reproduz o ambiente de publicação dos módulos JavaScript.
 
@@ -59,11 +59,15 @@ Referência: [publicação estática com Vite](https://vite.dev/guide/static-dep
 
 O envio de fotos e a votação pertencem a uma aplicação separada. A apresentação não deve depender desse serviço para executar o conteúdo didático. A hospedagem, as regras de participação e a conexão entre as duas entregas ainda serão definidas.
 
+**Sem hospedagem da atividade:** no slide da mostra, receba as fotos pelo canal que você combinou com os grupos e baixe os arquivos JPEG/PNG/WebP no computador do telão. Clique em **Selecionar fotos**, ajuste os títulos, passe pelas imagens com as setas e registre manualmente votos populares e notas dos jurados. **Ver destaques** mostra os resultados em separado. As fotos e a contagem ficam somente na aba aberta; a mostra local não recebe arquivos nem votos dos celulares.
+
 Para iniciar a aplicação local, execute `npm --prefix atividade start` em outro terminal. O painel fica em `http://127.0.0.1:3001/admin`; a página de participantes fica em `http://127.0.0.1:3001`. A chave temporária do professor aparece no terminal, a menos que `ADMIN_KEY` já esteja definida. A aplicação usa Node e SQLite e não é incluída no build estático de `dist/`.
+
+Para que alunos acompanhem a **apresentação** em celulares sem publicação pública, execute `npm run build` e `npm run preview:lan`; abra no computador do telão `http://IP-DO-COMPUTADOR:4173/aula-fotografia-inovalab/`. O QR Code da capa usa automaticamente esse endereço. Os celulares precisam estar na mesma rede e alcançar o computador. Se abrir por `127.0.0.1`, o QR apontará para o próprio celular e não funcionará nele; na capa, use **Definir endereço** para inserir um link público ou de rede acessível. Esse QR é da apresentação, não da atividade.
 
 ## Conduzir e ensaiar
 
-- Use as setas ou espaço para navegar. A capa contém somente o título, com uma seta para avançar; I, N e F também funcionam nela.
+- Use as setas ou espaço para navegar. A capa contém o título, a ilustração animada da luz, o QR Code e câmeras e fotos instantâneas em 3D nas torres externas; I, N e F também funcionam nela.
 - **I** abre o índice; **N** abre notas; **F** solicita tela cheia; **Esc** fecha o painel aberto. As notas aparecem na própria janela, portanto feche-as antes de projetar novamente.
 - As setas em controles deslizantes alteram o controle, sem trocar de slide.
 - Nas opções, use **Telão** para a divisão 1–1–4–1–1 ou **Estudo** para ampliar o centro. Celulares iniciam em modo estudo.
@@ -72,7 +76,7 @@ Para iniciar a aplicação local, execute `npm --prefix atividade start` em outr
 - O laboratório usa uma cena didática, com brilho relativo à referência da cena; não promete reproduzir exatamente qualquer câmera real.
 - O quiz é coletivo e fica no navegador do professor; as explicações aparecem após cada resposta.
 - Os cronômetros de captura, edição e envio podem ser pausados e não mudam o slide automaticamente.
-- No slide da mostra, vincule o endereço da atividade pelas opções. A apresentação gera o QR code localmente.
+- No slide da mostra, use a importação local se a atividade não estiver hospedada. Se houver endereço da atividade, vincule-o pelas opções; o slide gera um QR Code separado para ela.
 
 O roteiro do professor é gerado pelo build em `dist/roteiro.html` e também pode ser aberto em outra aba. Os recursos essenciais são locais: para ensaiar sem internet, execute a cópia local por HTTP. O endereço público da atividade depende da hospedagem separada.
 
@@ -88,7 +92,7 @@ npm run test:static
 
 Os testes de navegador usam o Chrome instalado, com perfil de teste isolado. Verificam o layout em 1440 × 900, 3840 × 1440 e 390 × 844, controles, câmera, simulador, quiz e o fluxo de entrega/revisão/votação. A aplicação da atividade usa banco temporário nesses testes; dados reais não são apagados.
 
-`test:static` serve somente os arquivos já gerados em `dist/`, montados na subpasta `/aula/`, para conferir navegação, fotos, fonte, roteiro e importação da câmera sem qualquer requisição a CDN ou serviço externo.
+`test:static` serve somente os arquivos já gerados em `dist/`, montados na subpasta `/aula-fotografia-inovalab/`, para conferir navegação, fotos, fonte, roteiro e importação da câmera sem qualquer requisição a CDN ou serviço externo.
 
 A sequência soma 120 minutos: 45 de teoria/demonstrações, 5 de organização, 25 de captura, 20 de edição, 5 de envio, 19 de avaliação/mostra e 1 de encerramento.
 

@@ -18,7 +18,7 @@ const topics:Partial<Record<SlideKind,string[]>>={
  files:['JPEG: processado, comprimido, fácil de compartilhar','RAW: dados de captura, mais espaço para edição','Entregar uma cópia exportada'],
  editing:['Começar pela intenção','Comparar original e edição','Ajustar luz, contraste e cor com medida'],
  apps:['Lightroom: pago; recursos básicos gratuitos no celular','Snapseed: gratuito','Editor do próprio celular também serve'],
- poster:['Duas fotografias em camadas','16 modos de mesclagem · 65%','Tipografia, posição e leitura'],
+ poster:['Duas fotografias em camadas','Seis modos representativos · 65%','Outros dez modos disponíveis no seletor','Tipografia, posição e leitura'],
  ethics:['Consentimento antes da foto','Crédito e permissão para publicar','Edição pode mudar o sentido da imagem'],
  quiz:['Movimento, abertura e fotômetro','RAW, ponto de vista e espaço para texto','Prever → revelar → explicar'],
  mission:['Um grupo, uma imagem e um título','Duas posições físicas e uma escolha de composição','Luz, intenção e consentimento'],
@@ -33,9 +33,9 @@ export function stepTopics(kind:SlideKind,frame:GuideFrame|undefined,step:number
  if(!frame)return [];
  if(kind==='camera')return [...frame.cue.left,...frame.cue.right];
  if(kind==='poster'){
-  const mode=blendModes[step-2];
-  if(mode)return [mode.group,mode.effect,'Mesmas duas fotos · 65%'];
-  if(step===20)return ['Overlay','Título embaixo','Sem fundo de leitura'];
+  const mode=blendModes.find(item=>item.id===frame.poster?.blend);
+  if(mode&&!frame.poster?.type)return [mode.group,mode.effect,'Mesmas duas fotos · 65%'];
+  if(frame.cue.left.includes('Inovalab'))return ['Overlay','Título embaixo','Sem fundo de leitura'];
  }
  if(kind==='lighting-examples'&&frame.light){
   const example=lightingExamples[frame.light.example];

@@ -3,12 +3,14 @@ import { mkdir } from 'node:fs/promises';
 import { useManualMode } from './manual-mode.mjs';
 test.beforeEach(async({page})=>useManualMode(page));
 
-test('capa somente com título, proporções do telão e definição seguinte',async({page})=>{
+test('capa com título, QR Code, proporções do telão e definição seguinte',async({page})=>{
   await page.goto('/#inicio');await page.evaluate(()=>document.fonts.ready);
   await expect(page.locator('#slide-title')).toHaveText('Fotografia e Produção de Imagens');
   await expect(page.locator('.center img')).toHaveCount(0);await expect(page.locator('#aperture-close')).toHaveCount(0);
   await expect(page.locator('.topbar')).toBeHidden();
-  const coverText=await page.locator('.center').innerText();expect(coverText.replace(/\s+/g,' ').trim()).toBe('Fotografia e Produção de Imagens');
+  await expect(page.locator('.cover-light svg')).toBeVisible();
+  await expect(page.locator('.cover-qr svg')).toBeVisible();
+  await expect(page.locator('.cover-follow')).toContainText('Acompanhe pelo celular');
   const widths=await page.locator('.stage > aside,.stage > main').evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().width));
   expect(widths.map(w=>Math.round(w))).toEqual([180,180,720,180,180]);
   await expect(page.locator('.tower')).toHaveCount(4);for(const panel of await page.locator('.tower').all())await expect(panel).toBeEmpty();

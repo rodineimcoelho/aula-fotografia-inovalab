@@ -212,7 +212,7 @@ A direção escolhida traduziu a progressão e a precisão do mundo de dobras pa
 - Figtree com hierarquia de tamanho, peso, espaço e contraste; a capa distingue a primeira linha das demais.
 - Diagramas, fotografias e geometria contável como conteúdo de maior presença.
 - Controles retangulares discretos e estados legíveis.
-- Assunto e resultado no centro; torres internas somente com palavras grandes e torres externas vazias; capa com quatro torres vazias.
+- Assunto e resultado no centro; torres internas somente com palavras grandes; torres externas com câmeras e fotos instantâneas em 3D, sem texto ou controles. Na capa, as torres internas permanecem vazias.
 - Setas executam etapas recuperáveis antes de trocar de slide; controles manuais continuam no centro.
 - Navegação mínima no rodapé e controles visíveis durante o roteiro; leitura reunida no modo de estudo.
 - Modo professor independente, centrado em tópicos curtos, com a mesma paleta e família tipográfica.
@@ -275,7 +275,7 @@ As cores de fotografias, da cena simulada e dos materiais da câmera pertencem a
 
 ## Layout
 
-A apresentação preenche a janela (`100vw × 100svh`) com cinco colunas proporcionais **1–1–4–1–1**, sem limite de largura nem margens externas. O centro recebe 50% da largura; cada torre recebe 12,5%. Em 3840px isso resulta em 480/480/1920/480/480px. O assunto, o resultado, a medição, os controles e a navegação ficam no centro. As torres externas permanecem vazias; nas etapas guiadas, a torre interna esquerda pode nomear o conceito e a direita indicar sua consequência, somente em texto grande.
+A apresentação preenche a janela (`100vw × 100svh`) com cinco colunas proporcionais **1–1–4–1–1**, sem limite de largura nem margens externas. O centro recebe 50% da largura; cada torre recebe 12,5%. Em 3840px isso resulta em 480/480/1920/480/480px. O assunto, o resultado, a medição, os controles e a navegação ficam no centro. As torres externas usam o mesmo modelo Three.js da câmera da aula: montado à esquerda e desmontado à direita. Duas Polaroids locais ocupam faixas sem sobreposição acima e abaixo de cada câmera; fotos e câmeras flutuam em ritmos independentes. Nas etapas guiadas, as torres internas podem nomear conceito e consequência somente com texto grande.
 
 O centro tem conteúdo flexível e rodapé, sem cabeçalho repetindo o nome da aula, com o espaçamento `deck-gap`, intervalo de slide `slide-gap` e recuo `deck-inset`. O conteúdo central pode rolar internamente quando necessário; o corpo da apresentação não rola. Figuras usam o espaço disponível sem distorcer a imagem ou a geometria.
 
@@ -283,7 +283,7 @@ As mensagens laterais aparecem somente no modo Telão com largura de pelo menos 
 
 Abaixo de 1200px ou no modo Estudo, a orientação da etapa aparece como frase central com anúncio discreto. Todos os controles permanecem no centro em qualquer largura; `src/presentation-layout.ts` agrupa os próprios nós em “Controles da demonstração”, sem copiá-los para as torres. As figuras mantêm a relação acessível com suas descrições. As torres não recebem formulários, botões, rótulos pequenos nem imagens de resultado.
 
-A capa é uma variante específica: mostra somente o título tipográfico no centro e a seta para avançar; as quatro torres ficam vazias. A contagem e as ferramentas ficam ocultas nessa abertura.
+A capa é uma variante específica: mostra o título tipográfico, um traçado geométrico de luz que se desenha uma vez, QR Code da apresentação e convite para acompanhar pelo celular; as torres internas ficam vazias e as externas mostram câmeras e Polaroids flutuantes. A contagem e as ferramentas ficam ocultas nessa abertura. No slide seguinte à definição, a fotografia se revela como resultado da luz. Movimento reduzido remove os traçados e a flutuação 3D, preservando os objetos, as imagens e o QR.
 
 Em até 700px, os recuos passam a 20px, o intervalo do centro a 16px e o do slide a 20px. O modo de estudo, selecionado automaticamente na primeira visita em telefone, expande o centro para toda a largura e zera as torres. É uma preferência persistida, também disponível nas opções. O modo de telão conserva suas proporções em qualquer monitor, com apoio lateral somente a partir do limite documentado.
 
@@ -295,7 +295,7 @@ O modo professor usa uma página própria em `?professor=1`, com altura de 100sv
 
 Em até 1000px, o modo professor reduz recuo para 20px 24px, intervalo da página para 20px e das colunas para 28px; a proporção passa a 1.6:1 com mínimo de 250px para o roteiro. Em até 700px, usa recuo de 20px e um fluxo único rolável de tópicos e roteiro, mantendo as ações do rodapé fora da área de rolagem. Essa superfície não usa as cinco faixas da projeção.
 
-**The Centro Livre Rule.** Mantenha assunto, resultado, fotômetro e todos os controles no centro. Nas torres internas, permita somente palavras grandes de conceito e consequência. Preserve as torres externas vazias e, na capa, as quatro torres vazias.
+**The Centro Livre Rule.** Mantenha assunto, resultado, fotômetro e todos os controles no centro. Nas torres internas, permita somente palavras grandes de conceito e consequência. As torres externas podem carregar as câmeras e Polaroids decorativas, sem rótulos ou controles; na capa, mantenha vazias as torres internas.
 
 **The Uma Camada de Decisão Rule.** No roteiro padrão, use as setas para executar uma etapa de cada vez, mantendo controles e valores visíveis. Não repita cabeçalho, seção ou explicação que a própria demonstração já torna clara.
 
@@ -365,7 +365,7 @@ A seleção mantém o conjunto completo visível e enquadrado. Somente a peça e
 
 ### Produção por camadas e comparação tipográfica
 
-A referência fornecida é uma imagem final, exibida inteira com `object-fit:contain`. O roteiro passa da referência para um estudo separado e acrescenta fotografia base, segunda foto, mesclagem e tipografia em etapas. A comparação percorre os 16 modos de mesclagem definidos em `src/blend-modes.ts`, mantendo as mesmas duas fotos e opacidade constante de 65% para isolar o modo; só depois acrescenta e compara tipografia. Em exploração manual, “Experimentar camadas” abre esse estudo; duas fotografias, tipografia e fundo de leitura são ativáveis. Mesclagem e opacidade alteram as fotografias do estudo, sem criar um material decorativo para a interface. O seletor de tipografia alterna Figtree e a serifa didática somente no título da arte; posição e texto são decisões recuperáveis do mesmo estudo. O exemplo usa Inovalab; a etapa final seleciona Overlay, título embaixo e fundo de leitura desligado.
+A referência fornecida é uma imagem final, exibida inteira com `object-fit:contain`. O roteiro passa da referência para um estudo separado e acrescenta fotografia base, segunda foto, mesclagem e tipografia em etapas. A comparação guiada percorre seis modos representativos, um de cada família de efeito, mantendo as mesmas duas fotos e opacidade constante de 65%; os 16 modos definidos em `src/blend-modes.ts` continuam no seletor manual. Depois o roteiro acrescenta e compara tipografia. Em exploração manual, “Experimentar camadas” abre esse estudo; duas fotografias, tipografia e fundo de leitura são ativáveis. Mesclagem e opacidade alteram as fotografias do estudo, sem criar um material decorativo para a interface. O seletor de tipografia alterna Figtree e a serifa didática somente no título da arte; posição e texto são decisões recuperáveis do mesmo estudo. O exemplo usa Inovalab; a etapa final seleciona Overlay, título embaixo e fundo de leitura desligado.
 
 O fundo de leitura carvão com transparência local (`#151618eb`) pode ser ativado nas opções de camadas para comparar contraste; o padrão e a etapa final deixam o fundo transparente. As fotografias cobrem a área experimental, com posição de recorte em `center 25%`; a camada de texto tem limites de altura e largura, com recuo de .85cqw ou 12px no telefone. Os rótulos “Foto base” e “Segunda foto” identificam as duas camadas independentemente do assunto fotografado. No roteiro guiado, título, mesclagem e opacidade usam três colunas no desktop e duas no telefone, com título em largura total. No modo de troca simples, a grade principal usa duas colunas. As torres mostram somente palavras grandes correspondentes à etapa.
 
@@ -373,9 +373,11 @@ O fundo de leitura carvão com transparência local (`#151618eb`) pode ser ativa
 
 As setas preparam o grupo e iniciam as fases de fotografia, edição e envio; os controles de cronômetro ficam nos ajustes manuais. Um relógio ativo continua ao visitar outros slides. Voltar explicitamente a uma fase da prática reinicia o tempo daquela fase, tornando a transição previsível. O encerramento usa somente a pergunta de reflexão em texto grande, sem fotografia nem botão de retorno; o rodapé continua disponível.
 
+Sem servidor da atividade, a mostra aceita arquivos JPEG/PNG/WebP escolhidos no computador do telão. A fotografia e o título dominam o centro; navegação fica nas laterais da imagem. Título editável e contagem manual de votos populares/notas de jurados ficam em disclosure secundário. Os destaques aparecem separados. Objetos de imagem e notas permanecem apenas na aba aberta, sem simular envio ou votação remota.
+
 ### Modo professor independente
 
-Os tópicos do slide são o conteúdo principal, acompanhados por etiquetas curtas da etapa atual. Um seletor escolhe o slide; posição e etapa ficam explícitas. A coluna secundária lista etapas com nomes abreviados como botões e destaca a atual por `aria-current=step`, fundo `surface` e texto coral. Em larguras acima de 700px, a rolagem dessa coluna mantém a etapa atual visível; no telefone, não desloca a leitura para a lista de etapas. “Na próxima seta” antecipa a ação seguinte. Rodapé com Anterior e Próximo e atalhos equivalentes permite acompanhar manualmente a aula. O modo não traz falas sugeridas; tópicos e comparações acompanham as 92 etapas do roteiro.
+Os tópicos do slide são o conteúdo principal, acompanhados por etiquetas curtas da etapa atual. Um seletor escolhe o slide; posição e etapa ficam explícitas. A coluna secundária lista etapas com nomes abreviados como botões e destaca a atual por `aria-current=step`, fundo `surface` e texto coral. Em larguras acima de 700px, a rolagem dessa coluna mantém a etapa atual visível; no telefone, não desloca a leitura para a lista de etapas. “Na próxima seta” antecipa a ação seguinte. Rodapé com Anterior e Próximo e atalhos equivalentes permite acompanhar manualmente a aula. O modo não traz falas sugeridas; tópicos e comparações acompanham as 82 etapas do roteiro.
 
 O modo professor navega de forma independente do computador do telão, sem sincronização, pareamento ou backend. Sua URL guarda slide e etapa; não altera os dados salvos nem a posição da projeção. O cabeçalho declara essa independência e oferece um link para abrir a apresentação, sem sugerir controle remoto. A leitura herda Figtree, paleta, cantos discretos e foco dos controles existentes.
 
@@ -385,7 +387,7 @@ O modo professor navega de forma independente do computador do telão, sem sincr
 
 - **Do** usar o coral para ação, seleção e consequência visível.
 - **Do** preservar a proporção 1–1–4–1–1 e reservar as torres internas somente a palavras grandes de conceito e consequência.
-- **Do** manter as torres externas vazias e todas as torres vazias na capa.
+- **Do** reservar o centro para o conteúdo e manter câmeras e Polaroids somente nas torres externas.
 - **Do** manter todos os controles no centro e visíveis durante o roteiro, executando as etapas pelas setas enquanto os valores mudam.
 - **Do** manter o modo professor independente e indicar slide, etapa atual e próxima ação sem prometer sincronização.
 - **Do** manter o resultado da câmera central e empilhar modelo e resultado no telefone; posicionar o fotômetro abaixo da imagem do laboratório.
@@ -398,7 +400,7 @@ O modo professor navega de forma independente do computador do telão, sem sincr
 ### Don't:
 
 - **Don't** acrescentar textura de papel, origami, glows ou sombras decorativas à interface.
-- **Don't** ocupar as torres externas nem inserir controles, imagens ou rótulos pequenos nas torres internas.
+- **Don't** colocar controles, legendas ou textos pequenos nas torres externas ou internas.
 - **Don't** atribuir pontuação a revelações do quiz guiado ou alterar respostas salvas durante essas etapas.
 - **Don't** repetir o nome da aula no cabeçalho, a seção no rodapé ou um título genérico acima da pergunta do quiz.
 - **Don't** transformar a geometria didática em ornamento ou distorcer fotografias para preencher espaço.
